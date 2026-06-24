@@ -6,6 +6,10 @@
 <title>Uniqore — ИИ-агент для участия в тендерах</title>
 <meta name="description" content="Uniqore (Юни) сам находит тендеры, разбирает техзадания и собирает пакет документов к подаче. Вам остаётся нажать «Отправить». Для поставщиков на тендерных площадках Казахстана." />
 <link rel="canonical" href="https://uniqore.kz/" />
+<link rel="alternate" hreflang="ru" href="https://uniqore.kz/?lang=ru" />
+<link rel="alternate" hreflang="kk" href="https://uniqore.kz/?lang=kk" />
+<link rel="alternate" hreflang="en" href="https://uniqore.kz/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://uniqore.kz/" />
 <meta name="theme-color" content="#FFF7F0" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon.png" sizes="180x180" type="image/png" />
@@ -16,6 +20,8 @@
 <meta property="og:url" content="https://uniqore.kz/" />
 <meta property="og:site_name" content="Uniqore" />
 <meta property="og:locale" content="ru_RU" />
+<meta property="og:locale:alternate" content="kk_KZ" />
+<meta property="og:locale:alternate" content="en_US" />
 <meta property="og:image" content="https://uniqore.kz/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -54,6 +60,11 @@ body{font-family:'Nunito',system-ui,sans-serif;color:var(--ink);-webkit-font-smo
 .brand .logo svg{width:26px;height:26px}.brand .logo svg path{fill:#fff}.brand .logo svg circle{fill:#FF6B5E}
 .brand .bt{font-weight:900;font-size:20px;letter-spacing:-.5px;line-height:1}
 .brand .bt small{display:block;font-size:10.5px;font-weight:800;color:var(--ink-2);letter-spacing:1.5px;margin-top:3px}
+.topright{display:flex;align-items:center;gap:10px}
+.langsw{display:inline-flex;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:3px;gap:2px;box-shadow:var(--shadow-sm)}
+.langsw button{border:0;background:transparent;font-family:inherit;font-weight:800;font-size:12.5px;letter-spacing:.3px;color:var(--ink-2);padding:6px 10px;border-radius:999px;cursor:pointer;transition:.15s}
+.langsw button:hover:not(.on){color:var(--ink)}
+.langsw button.on{background:var(--ink);color:#fff}
 .toplink{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:14px;
   color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;
   box-shadow:var(--shadow-sm);transition:.16s}
@@ -68,7 +79,7 @@ main{flex:1;width:100%;max-width:1180px;margin:0 auto;padding:18px 26px 40px;
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #ECE4FB;
   border-radius:999px;padding:8px 15px;box-shadow:var(--shadow-sm);margin-bottom:22px}
 .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--magic);box-shadow:0 0 0 4px rgba(139,123,240,.16)}
-.eyebrow span{font-weight:900;font-size:13.5px;color:var(--lav);letter-spacing:.2px}
+.eyebrow span:last-child{font-weight:900;font-size:13.5px;color:var(--lav);letter-spacing:.2px}
 
 h1{font-size:clamp(34px,5.2vw,58px);font-weight:900;letter-spacing:-1.4px;line-height:1.04;margin-bottom:20px}
 h1 .x{color:var(--coral)}
@@ -130,7 +141,9 @@ footer{width:100%;border-top:1.5px solid var(--line);background:rgba(255,255,255
   .toplink{padding:10px 13px}
 }
 @media (max-width:520px){
-  .topbar{padding:18px 18px}
+  .topbar{padding:18px 16px}
+  .topright{gap:8px}
+  .langsw button{padding:6px 8px;font-size:12px}
   main{padding:4px 18px 30px}
   .cta{width:100%;justify-content:center}
   h1{font-size:30px;letter-spacing:-.8px}
@@ -143,28 +156,35 @@ footer{width:100%;border-top:1.5px solid var(--line);background:rgba(255,255,255
 <header class="topbar">
   <div class="brand">
     <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M5 19c0-5 3-9 8-10l3-6 1 6c2 1 3 3 3 6 0 4-3 7-9 7s-9-3-9-3"/><circle cx="14" cy="13" r="1.5"/></svg></div>
-    <div class="bt">Uniqore<small>ТЕНДЕРЫ</small></div>
+    <div class="bt">Uniqore<small data-i18n="brandSub">ТЕНДЕРЫ</small></div>
   </div>
-  <a class="toplink" href="https://wa.me/77019852754?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20Uniqore%20%D0%B4%D0%BB%D1%8F%20%D1%82%D0%B5%D0%BD%D0%B4%D0%B5%D1%80%D0%BE%D0%B2." target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.4l.4-.5.2-.4v-.4c0-.1-.5-1.3-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 4 3.4 1.4.6 2 .6 2.7.5.4 0 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1l-.4-.2z"/></svg>
-    <span class="lbl-full">WhatsApp</span>
-  </a>
+  <div class="topright">
+    <div class="langsw" id="langsw" role="group" aria-label="Язык / Language">
+      <button type="button" data-lang="ru">RU</button>
+      <button type="button" data-lang="kk">KZ</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="toplink" data-wa href="https://wa.me/77019852754" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.4l.4-.5.2-.4v-.4c0-.1-.5-1.3-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 4 3.4 1.4.6 2 .6 2.7.5.4 0 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1l-.4-.2z"/></svg>
+      <span class="lbl-full">WhatsApp</span>
+    </a>
+  </div>
 </header>
 
 <main>
   <section class="hero-copy">
-    <div class="eyebrow"><span class="dot"></span><span>ИИ-агент для участия в тендерах</span></div>
-    <h1>До <span class="x">×10</span> больше тендеров — <br class="brk">теми же силами</h1>
-    <p class="lead"><b>Юни</b> сам находит тендеры, разбирает техзадания и собирает пакет документов к подаче. Вам остаётся нажать кнопку «Отправить».</p>
+    <div class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">ИИ-агент для участия в тендерах</span></div>
+    <h1 data-i18n-html="h1">До <span class="x">×10</span> больше тендеров — <br class="brk">теми же силами</h1>
+    <p class="lead" data-i18n-html="lead"><b>Юни</b> сам находит тендеры, разбирает техзадания и собирает пакет документов к подаче. Вам остаётся нажать кнопку «Отправить».</p>
 
     <div class="cta-row">
-      <a class="cta" href="https://wa.me/77019852754?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20Uniqore%20%D0%B4%D0%BB%D1%8F%20%D1%82%D0%B5%D0%BD%D0%B4%D0%B5%D1%80%D0%BE%D0%B2." target="_blank" rel="noopener">
+      <a class="cta" data-wa href="https://wa.me/77019852754" target="_blank" rel="noopener">
         <span class="wa-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.4l.4-.5.2-.4v-.4c0-.1-.5-1.3-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 4 3.4 1.4.6 2 .6 2.7.5.4 0 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1l-.4-.2z"/></svg></span>
-        Написать в WhatsApp
+        <span class="cta-label" data-i18n="cta">Написать в WhatsApp</span>
       </a>
     </div>
 
-    <div class="foot-note">Для поставщиков на тендерных площадках Казахстана 🇰🇿</div>
+    <div class="foot-note" data-i18n="footnote">Для поставщиков на тендерных площадках Казахстана 🇰🇿</div>
   </section>
 
   <section class="hero-art">
@@ -182,8 +202,8 @@ footer{width:100%;border-top:1.5px solid var(--line);background:rgba(255,255,255
   <div class="foot-inner">
     <div class="fb"><span class="d"></span>uniqore.kz</div>
     <div class="foot-meta">
-      <span>Astana · Kazakhstan</span>
-      <a href="https://wa.me/77019852754" target="_blank" rel="noopener">
+      <span data-i18n="footLoc">Астана · Казахстан</span>
+      <a data-wa href="https://wa.me/77019852754" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20z"/></svg>
         WhatsApp
       </a>
@@ -192,5 +212,83 @@ footer{width:100%;border-top:1.5px solid var(--line);background:rgba(255,255,255
   </div>
 </footer>
 
+<script>
+const I18N = {
+  ru: {
+    docTitle: "Uniqore — ИИ-агент для участия в тендерах",
+    metaDesc: "Uniqore (Юни) сам находит тендеры, разбирает техзадания и собирает пакет документов к подаче. Вам остаётся нажать «Отправить». Для поставщиков на тендерных площадках Казахстана.",
+    brandSub: "ТЕНДЕРЫ",
+    eyebrow: "ИИ-агент для участия в тендерах",
+    h1: 'До <span class="x">×10</span> больше тендеров — <br class="brk">теми же силами',
+    lead: '<b>Юни</b> сам находит тендеры, разбирает техзадания и собирает пакет документов к подаче. Вам остаётся нажать кнопку «Отправить».',
+    cta: "Написать в WhatsApp",
+    footnote: "Для поставщиков на тендерных площадках Казахстана 🇰🇿",
+    footLoc: "Астана · Казахстан",
+    waText: "Здравствуйте! Хочу узнать про Uniqore для тендеров."
+  },
+  kk: {
+    docTitle: "Uniqore — тендерлерге қатысуға арналған ЖИ-агент",
+    metaDesc: "Uniqore (Юни) тендерлерді өзі тауып, техникалық тапсырмаларды талдап, тапсыруға арналған құжаттар топтамасын дайындайды. Сізге тек «Жіберу» түймесін басу қалады. Қазақстанның тендерлік алаңдарындағы жеткізушілерге арналған.",
+    brandSub: "ТЕНДЕРЛЕР",
+    eyebrow: "Тендерлерге қатысуға арналған ЖИ-агент",
+    h1: '<span class="x">×10</span> есеге дейін көп тендер — <br class="brk">сол құраммен',
+    lead: '<b>Юни</b> тендерлерді өзі тауып, техникалық тапсырмаларды талдап, тапсыруға арналған құжаттар топтамасын дайындайды. Сізге тек «Жіберу» түймесін басу қалады.',
+    cta: "WhatsApp-қа жазу",
+    footnote: "Қазақстанның тендерлік алаңдарындағы жеткізушілерге арналған 🇰🇿",
+    footLoc: "Астана · Қазақстан",
+    waText: "Сәлеметсіз бе! Тендерлерге арналған Uniqore туралы білгім келеді."
+  },
+  en: {
+    docTitle: "Uniqore — AI agent for tender participation",
+    metaDesc: "Uniqore (Yuni) finds tenders, analyzes the specs, and assembles the document package for submission. All you do is hit “Send”. For suppliers on Kazakhstan's tender platforms.",
+    brandSub: "TENDERS",
+    eyebrow: "AI agent for tender participation",
+    h1: 'Up to <span class="x">×10</span> more tenders — <br class="brk">with the same team',
+    lead: '<b>Yuni</b> finds tenders, breaks down the specs, and assembles the full document package for submission. All that’s left for you is to hit “Send”.',
+    cta: "Message on WhatsApp",
+    footnote: "For suppliers on Kazakhstan’s tender platforms 🇰🇿",
+    footLoc: "Astana · Kazakhstan",
+    waText: "Hello! I'd like to learn more about Uniqore for tenders."
+  }
+};
+const SUPPORTED = ['ru','kk','en'];
+
+function setLang(lang){
+  const t = I18N[lang] || I18N.ru;
+  document.documentElement.lang = lang;
+  document.title = t.docTitle;
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', t.metaDesc);
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const k = el.getAttribute('data-i18n');
+    if (t[k] != null) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    const k = el.getAttribute('data-i18n-html');
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  const href = 'https://wa.me/77019852754?text=' + encodeURIComponent(t.waText);
+  document.querySelectorAll('[data-wa]').forEach(function(a){ a.setAttribute('href', href); });
+  document.querySelectorAll('#langsw button').forEach(function(b){
+    b.classList.toggle('on', b.dataset.lang === lang);
+    b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
+  });
+  try { localStorage.setItem('uq_lang', lang); } catch (e) {}
+  try { const u = new URL(location.href); u.searchParams.set('lang', lang); history.replaceState(null, '', u); } catch (e) {}
+}
+
+function detectLang(){
+  try { const q = new URL(location.href).searchParams.get('lang'); if (SUPPORTED.indexOf(q) !== -1) return q; } catch (e) {}
+  try { const ls = localStorage.getItem('uq_lang'); if (SUPPORTED.indexOf(ls) !== -1) return ls; } catch (e) {}
+  const n = (navigator.language || '').slice(0,2).toLowerCase();
+  if (SUPPORTED.indexOf(n) !== -1) return n;
+  return 'ru';
+}
+
+document.querySelectorAll('#langsw button').forEach(function(b){
+  b.addEventListener('click', function(){ setLang(b.dataset.lang); });
+});
+setLang(detectLang());
+</script>
 </body>
 </html>
