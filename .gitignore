@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Local Claude Code config
+.claude/
+
+# Temp build artifacts (og-image / favicon rendering)
+_*.html
+*.tmp
