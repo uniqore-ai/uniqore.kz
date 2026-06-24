@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /privatedemo13/
+Disallow: /fullpage/
 
 Sitemap: https://uniqore.kz/sitemap.xml
