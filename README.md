@@ -32,8 +32,9 @@
 | `crm/index.html` | Страница `/crm` (CRM-акцент) |
 | `404.html` | Брендовая страница «не найдено» |
 | `CNAME` | Кастомный домен `uniqore.kz` для GitHub Pages |
-| `favicon.svg` / `favicon.png` | Иконки сайта (новые страницы используют инлайн base64) |
-| `og-image.png` | Превью для соцсетей (в новых страницах `og:image` пока не подключён) |
+| `favicon.*`, `apple-touch-icon.png`, `android-chrome-*`, `mstile-150x150.png`, `site.webmanifest`, `browserconfig.xml` | Favicon-набор бренд-пака v1.0.1 (скруглённые края), подключён на `/` и `/crm` |
+| `og-home-1200x630-ru-v1.0.1.png` / `og-crm-1200x630-ru-v1.0.1.png` | RU OG-баннеры соцпревью (1200×630) для `/` и `/crm` |
+| `og-image.png` | Старый OG (используется тендерным архивом) |
 | `robots.txt` / `sitemap.xml` | SEO |
 | `tenders/index.html` | Прежний тендерный лендинг — архив на `/tenders/`, `noindex` |
 | `tenders/demo/` | Прежнее приватное демо макета (было `/privatedemo13/`), под паролем, `noindex` |
@@ -64,11 +65,10 @@ gh pr create --base main
 - DNS (панель hoster.kz): apex `uniqore.kz` → 4 A-записи GitHub Pages
   (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`);
   `www` → CNAME `uniqore-ai.github.io`. Записи почты (`mail`, `MX`, `SPF`) не трогаем.
-- **Внимание:** на момент правки apex `uniqore.kz` ещё указывает на `89.35.125.9`
-  (парковка hoster.kz), а не на GitHub Pages — до смены A-записей сайт по домену
-  не отдаётся. Проверка: `dig +short uniqore.kz` должен вернуть адреса `185.199.108–111.153`.
+- DNS переключён на GitHub Pages: apex отдаёт `185.199.108–111.153`, `www` →
+  CNAME `uniqore-ai.github.io`, HTTPS-сертификат Let's Encrypt (`CN=uniqore.kz`)
+  выпущен. Проверка: `dig +short uniqore.kz` → адреса GitHub.
 
 ## Планы
 
-- Текущее — RU-версия лендинга uniqore.ai: `/` + `/crm`.
-- Подключить `og:image` для соцпревью; при необходимости — казахская версия.
+- При необходимости — казахская версия страниц.
