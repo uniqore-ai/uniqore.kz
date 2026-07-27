@@ -87,12 +87,6 @@ nav{position:sticky;top:0;z-index:50;background:rgba(238,240,246,.75);backdrop-f
 .nav-in .wm{font-weight:800;font-size:15px;letter-spacing:.08em}
 .nav-in .sp{flex:1}
 .nav-mail{font-size:13.5px;font-weight:700;color:var(--ink-2)}
-.lang{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line-strong);
-  border-radius:11px;background:var(--surface)}
-.lang a,.lang span{font-size:12.5px;font-weight:800;letter-spacing:.04em;line-height:1;
-  padding:6px 10px;border-radius:8px;color:var(--ink-3);text-decoration:none;transition:.16s}
-.lang a:hover{color:var(--ink);background:var(--surface-2)}
-.lang .on{background:var(--grad);color:#fff;box-shadow:0 4px 12px rgba(109,94,248,.30);cursor:default}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;
   font-family:var(--font);font-weight:700;font-size:14px;padding:12px 20px;border-radius:12px;
   transition:.16s;white-space:nowrap;line-height:1}
@@ -275,14 +269,14 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
     <details class="language-menu">
       <summary aria-label="Выбрать язык" aria-haspopup="menu">
         <span class="language-globe" aria-hidden="true">🌐</span>
-        <span class="language-current">Русский</span>
-        <span class="language-current-short">RU</span>
+        <span class="language-current">Рус</span>
+        <span class="language-current-short">Рус</span>
         <span class="language-chevron" aria-hidden="true"></span>
       </summary>
       <div class="language-options" role="menu">
-        <button type="button" role="menuitem" data-language-choice="ru">Русский <span class="language-code">RU</span></button>
-        <button type="button" role="menuitem" data-language-choice="kk">Қазақша <span class="language-code">ҚАЗ</span></button>
-        <a role="menuitem" href="https://uniqore.ai/" hreflang="en" rel="alternate">English <span class="language-code">EN</span></a>
+        <button type="button" role="menuitem" data-language-choice="ru">Рус</button>
+        <button type="button" role="menuitem" data-language-choice="kk">Қаз</button>
+        <a role="menuitem" href="https://uniqore.ai/" hreflang="en" rel="alternate" aria-label="Eng — uniqore.ai">Eng <span class="language-external-arrow" aria-hidden="true">↗</span></a>
       </div>
     </details>
     <a class="nav-mail" href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>

@@ -7,27 +7,30 @@
   display:flex;
   align-items:center;
   gap:8px;
-  padding:0 11px;
+  padding:0 7px;
   list-style:none;
-  border:1px solid var(--line-strong);
-  border-radius:10px;
-  background:rgba(255,255,255,.82);
+  border:0;
+  border-radius:8px;
+  background:transparent;
   color:var(--ink-2);
-  box-shadow:0 2px 8px rgba(24,28,50,.06);
+  box-shadow:none;
   cursor:pointer;
   user-select:none;
-  transition:border-color .16s,background .16s,box-shadow .16s;
+  transition:background .16s,color .16s;
 }
 .language-menu summary::-webkit-details-marker{display:none}
 .language-menu summary:hover{
-  border-color:#b9bfd2;
-  background:#fff;
+  background:rgba(255,255,255,.48);
   color:var(--ink);
 }
 .language-menu[open] summary{
-  border-color:rgba(109,94,248,.5);
-  background:#fff;
-  box-shadow:0 0 0 3px rgba(109,94,248,.10);
+  background:rgba(255,255,255,.58);
+  box-shadow:none;
+}
+.language-menu summary:focus{outline:none}
+.language-menu summary:focus-visible{
+  outline:2px solid rgba(109,94,248,.55);
+  outline-offset:2px;
 }
 .language-globe{
   font-size:15px;
@@ -62,7 +65,7 @@
   top:calc(100% + 8px);
   right:0;
   z-index:80;
-  width:184px;
+  width:138px;
   padding:6px;
   border:1px solid var(--line);
   border-radius:13px;
@@ -97,27 +100,26 @@
   background:rgba(109,94,248,.10);
   color:var(--violet);
 }
-.language-code{
+.language-external-arrow{
   margin-left:auto;
   color:var(--ink-3);
-  font-size:10.5px;
-  font-weight:800;
-  letter-spacing:.06em;
+  font-size:15px;
+  font-weight:700;
+  line-height:1;
 }
 .language-options button[aria-current="true"]::after{
   content:'✓';
-  margin-left:0;
+  margin-left:auto;
   color:var(--violet);
   font-size:12px;
   font-weight:800;
 }
-.language-options button[aria-current="true"] .language-code{margin-left:auto}
 
 html[data-language="kk"]:not(.i18n-ready) body{opacity:0}
 html.i18n-ready body{transition:opacity .12s ease}
 
 @media (max-width:560px){
-  .language-menu summary{padding:0 9px;gap:7px}
+  .language-menu summary{padding:0 5px;gap:7px}
   .language-current{display:none}
   .language-current-short{display:inline}
   .language-options{right:-4px}
