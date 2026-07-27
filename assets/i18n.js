@@ -210,8 +210,8 @@
 
   function updateMenu(){
     var names = language === 'kk'
-      ? {long:'Қазақша',short:'ҚАЗ'}
-      : {long:'Русский',short:'RU'};
+      ? {long:'Қаз',short:'Қаз'}
+      : {long:'Рус',short:'Рус'};
     document.querySelectorAll('.language-current').forEach(function(el){ el.textContent = names.long; });
     document.querySelectorAll('.language-current-short').forEach(function(el){ el.textContent = names.short; });
     document.querySelectorAll('.language-menu summary').forEach(function(el){
