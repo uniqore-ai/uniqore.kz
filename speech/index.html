@@ -351,6 +351,49 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 .amk .rec-mark.heard::before{background-color:var(--violet)}
 .amk .rec-mark.none::before{opacity:.45}
 .amk .rec-mark.none::after{content:"";position:absolute;left:-1px;right:-1px;top:50%;height:1.5px;background:var(--ink-3);opacity:.75;transform:rotate(-32deg);border-radius:1px}
+
+/* ── section variety ── */
+.feat-list{max-width:880px;margin:0 auto}
+.feat-row{display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-top:1px solid var(--line)}
+.feat-row:first-child{border-top:none;padding-top:6px}
+.feat-row .num{flex:none;width:78px;font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.feat-row h3{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-bottom:7px}
+.feat-row p{font-size:14.5px;color:var(--ink-2);line-height:1.6;max-width:640px}
+.dark-sec{background:radial-gradient(700px 340px at 80% -20%,rgba(109,94,248,.45),transparent 60%),radial-gradient(500px 300px at 0% 120%,rgba(17,201,192,.25),transparent 55%),var(--orb-bg);border-radius:24px;padding:46px 50px;color:#edeef7;box-shadow:var(--shadow-lg)}
+.dark-sec .sec-head{margin-bottom:30px}
+.dark-sec h2{color:#fff}
+.dark-sec .sec-head p{color:#b8bcd6}
+.dark-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 34px;text-align:left}
+.dk-it{display:flex;gap:13px}
+.dk-it .ck{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(17,201,192,.16);color:#2de3d9;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.dk-it h3{font-size:15.5px;font-weight:800;color:#fff;margin-bottom:5px}
+.dk-it p{font-size:13px;color:#b8bcd6;line-height:1.55}
+.tl{display:grid;grid-template-columns:repeat(3,1fr);position:relative;max-width:980px;margin:0 auto}
+.tl::before{content:'';position:absolute;top:26px;left:17%;right:17%;height:2px;background:linear-gradient(90deg,#6d5ef8,#8a6cff,#11c9c0);opacity:.5}
+.tl-step{text-align:center;padding:0 20px;position:relative}
+.tl-step .n{width:52px;height:52px;border-radius:50%;background:var(--grad);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 10px 24px rgba(109,94,248,.35);position:relative;z-index:1}
+.tl-step h3{font-size:16px;font-weight:800;margin-bottom:7px}
+.tl-step p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.priv{max-width:840px;margin:0 auto;background:var(--surface-2);border:1px solid var(--line);border-radius:20px;padding:8px 30px}
+.priv-row{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--line);align-items:flex-start}
+.priv-row:first-child{border-top:none}
+.priv-row .pic{flex:none;width:36px;height:36px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:15px}
+.priv-row h3{font-size:14.5px;font-weight:800;margin-bottom:4px}
+.priv-row p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.get-card{max-width:760px;margin:0 auto;text-align:center;background:linear-gradient(#fff,#fbfbfe);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);padding:44px 40px}
+.get-card .free{display:inline-block;background:rgba(31,191,117,.12);border:1px solid rgba(31,191,117,.35);color:#128a55;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:16px}
+.get-card p{font-size:15px;color:var(--ink-2);line-height:1.6;max-width:560px;margin:14px auto 26px}
+.get-note{margin-top:16px;font-size:13px;font-weight:600;color:var(--ink-3)}
+/* ── mock interactivity ── */
+.amk .tb-end{position:relative}
+.amk .menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;z-index:6;min-width:185px;text-align:left}
+.amk .menu-item{display:block;width:100%;text-align:left;border:none;background:none;font:600 12.5px var(--font);color:var(--ink-2);padding:8px 10px;border-radius:8px;cursor:pointer}
+.amk .menu-item:hover{background:var(--surface-2);color:var(--ink)}
+.amk .scope-row{font-size:12.5px;color:var(--ink-2);line-height:1.55;padding:6px 0;border-top:1px solid #e7eaf3;display:flex;gap:8px}
+.amk .scope-row:first-child{border-top:none;padding-top:0}
+.amk .scope-row .sl{flex:none;width:150px;color:var(--ink-3);font-weight:600}
+.amk .sub-toggle{cursor:pointer}
+@media(max-width:860px){.dark-grid{grid-template-columns:1fr}.tl{grid-template-columns:1fr;gap:26px}.tl::before{display:none}.feat-row{flex-direction:column;gap:10px}.feat-row .num{width:auto;font-size:34px}.dark-sec{padding:32px 24px}.priv{padding:4px 20px}.amk .scope-row{flex-direction:column;gap:2px}.amk .scope-row .sl{width:auto}}
 </style>
 </head>
 <body>
@@ -515,10 +558,10 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   <h1>Узнайте по звонкам, где менеджеры теряют сделки.</h1>
   <p class="sub">UNIQORE читает переписку и слушает записи звонков по сделкам из вашей CRM — и выдаёт рейтинг менеджеров по открытой методике и личный план каждому, с примерами из его же сделок.</p>
   <div class="cta-row">
-    <a class="btn btn-primary btn-xl" href="mailto:hi@uniqore.ai?subject=UNIQORE%20speech%20pilot">Хочу разбор моих звонков →</a>
+    <a class="btn btn-primary btn-xl" href="#get">Скачать и установить Uniqore →</a>
     <a class="btn btn-ghost btn-xl" href="#demo">Посмотреть пример</a>
   </div>
-  <div class="trust"><b>Bitrix24</b> и <b>amoCRM</b> · доступ только на чтение · имена сотрудников в ИИ не уходят</div>
+  <div class="trust"><b>Bitrix24</b> и <b>amoCRM</b> · доступ только на чтение · имена сотрудников в ИИ не уходят · первый разбор — бесплатно</div>
 </header>
 
 <!-- PAIN -->
@@ -568,9 +611,19 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
           </div>
           <div class="atoolbar run-head">
             <span class="run-meta"><span>Текущий месяц · с 01.07.2026 по 31.07.2026</span><span>разобрано 31.07.2026 · 18:42</span><span>прочитано 40 из 40 отобранных</span></span>
-            <span class="tb-end"><span class="abtn">Выгрузить ▾</span></span>
+            <span class="tb-end"><button class="abtn" id="expBtn">Выгрузить ▾</button>
+              <div class="menu" id="expMenu" hidden><button class="menu-item">В буфер обмена</button><button class="menu-item">Excel (.xlsx)</button><button class="menu-item">PDF (.pdf)</button></div></span>
           </div>
           <button class="sub-toggle first"><span class="chev">›</span> Что разбирали</button>
+          <div class="acard" id="sec-scope" hidden>
+            <div class="scope-row"><span class="sl">Период</span><span>Текущий месяц · с 01.07.2026 по 31.07.2026</span></div>
+            <div class="scope-row"><span class="sl">Менеджеров</span><span>5 · объём: по 8 сделок на человека</span></div>
+            <div class="scope-row"><span class="sl">Брали</span><span>выигранные · отказные · в работе · зависшие</span></div>
+            <div class="scope-row"><span class="sl">Состав</span><span>16 закрытых · 14 в работе · 10 зависших</span></div>
+            <div class="scope-row"><span class="sl">Прочитано</span><span>комментариев 96 · писем 12 · сообщений в мессенджерах 54 · звонков 118</span></div>
+            <div class="scope-row"><span class="sl">Записи</span><span>разрешены, прослушано 14</span></div>
+            <div class="scope-row"><span class="sl">Кого разбирали</span><span>Айгерим · Мария · Тимур · Арман · Салтанат</span></div>
+          </div>
           <div class="sub-head-row"><button class="sub-toggle"><span class="chev open">›</span> Рейтинг</button></div>
           <div class="acard">
             <div class="p-cap">Балл считает код по методике, а не ИИ: два прогона на одних данных обязаны дать одно число. <b>Мест и номеров нет</b> — список отсортирован по баллу. Считается <b>только по закрытым сделкам</b>: у открытой исхода ещё нет, открытые идут в личные планы. Закрытых меньше четырёх — балла нет: это была бы не оценка, а поклёп.</div>
@@ -626,6 +679,13 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
             </div>
           </div>
           <button class="sub-toggle"><span class="chev">›</span> Что прочитано, а что нет</button>
+          <div class="acard" id="sec-cover" hidden>
+            <div class="scope-row"><span class="sl">Прочитано</span><span>40 из 40 отобранных сделок периода · записи были у 18 сделок, прослушали 14</span></div>
+            <div class="scope-row"><span class="sl">Материал</span><span>комментариев 96 · писем 12 · сообщений в мессенджерах 54 · звонков 118</span></div>
+            <div class="scope-row"><span class="sl">Сделка 1310</span><span>звонок 12 с — это гудки, не разговор (слушаем от 30 с)</span></div>
+            <div class="scope-row"><span class="sl">Сделка 1284</span><span>запись 42 мин — длиннее лимита 5 мин</span></div>
+            <div class="scope-row"><span class="sl">Сделка 1263</span><span>файл 3,1 МБ — больше лимита 2 МБ</span></div>
+          </div>
         </div>
         <div class="pane-div"></div>
         <aside class="dc">
@@ -652,15 +712,12 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
       <h2>Что вы получаете после разбора.</h2>
       <p>Не гору расшифровок, а выводы, с которыми можно выйти на планёрку в тот же день.</p>
     </div>
-    <div class="grid3">
-      <div class="card res rv"><div class="ic">🏆</div><h3>Рейтинг по методике</h3>
-        <p>Каждый разговор оценивается по 8 критериям — от снятия потребности до скорости первого ответа. Балл считает программа, а не нейросеть: два прогона дают одно и то же число.</p></div>
-      <div class="card res rv"><div class="ic">📋</div><h3>Личный план каждому</h3>
-        <p>Два-три шага на человека с примерами из его же сделок: где спросил про бюджет — выиграл, где не спросил — ушла. Совет без ссылки на сделку не выводится.</p></div>
-      <div class="card res rv"><div class="ic">💬</div><h3>Фразы лучших — дословно</h3>
-        <p>Как ваши сильные продавцы отвечают на «дорого» и назначают следующий шаг — цитатами из выигранных сделок. Команда верит своим, а не книжкам.</p></div>
+    <div class="feat-list">
+      <div class="feat-row rv"><span class="num">01</span><div><h3>Рейтинг по методике</h3><p>Каждый разговор оценивается по 8 критериям — от снятия потребности до скорости первого ответа. Балл считает программа, а не нейросеть: два прогона дают одно и то же число.</p></div></div>
+      <div class="feat-row rv"><span class="num">02</span><div><h3>Личный план каждому</h3><p>Два-три шага на человека с примерами из его же сделок: где спросил про бюджет — выиграл, где не спросил — ушла. Совет без ссылки на сделку не выводится.</p></div></div>
+      <div class="feat-row rv"><span class="num">03</span><div><h3>Фразы лучших — дословно</h3><p>Как ваши сильные продавцы отвечают на «дорого» и назначают следующий шаг — цитатами из выигранных сделок. Команда верит своим, а не книжкам.</p></div></div>
     </div>
-    <div class="card strip rv" style="margin-top:18px">
+    <div class="card strip rv" style="margin-top:14px">
       <span class="em">⏳</span>
       <div>
         <h3>Зависшие сделки — деньги этой недели</h3>
@@ -673,19 +730,17 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 <!-- WHY TRUST -->
 <section>
   <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Оценкам можно верить. И можно проверить.</h2>
-      <p>Рейтинг сотрудников, который нельзя проверить, — не инструмент, а повод для скандала. Поэтому здесь всё иначе.</p>
-    </div>
-    <div class="grid2">
-      <div class="card res rv"><div class="ic">🧮</div><h3>Балл считает код</h3>
-        <p>Критерии нормируются и взвешиваются программой с фиксированными весами. ИИ отвечает на вопросы вроде «прозвучала ли цена» — но не решает, кто лучше.</p></div>
-      <div class="card res rv"><div class="ic">🔗</div><h3>Каждый вывод — со ссылкой</h3>
-        <p>Под каждым шагом плана — конкретные сделки. Клик открывает ту самую карточку в вашей CRM: можно открыть и убедиться.</p></div>
-      <div class="card res rv"><div class="ic">⚖️</div><h3>Мало данных — не судим</h3>
-        <p>Меньше четырёх разобранных закрытых сделок — балла нет, и причина написана словами. «Худший менеджер» из трёх сделок — это не оценка, а поклёп.</p></div>
-      <div class="card res rv"><div class="ic">📈</div><h3>Динамика от разбора к разбору</h3>
-        <p>Разборы копятся: видно, как меняются баллы команды и каждого менеджера от периода к периоду — сработала ли планёрка.</p></div>
+    <div class="dark-sec rv">
+      <div class="sec-head">
+        <h2>Оценкам можно верить. И можно проверить.</h2>
+        <p>Рейтинг сотрудников, который нельзя проверить, — не инструмент, а повод для скандала. Поэтому здесь всё иначе.</p>
+      </div>
+      <div class="dark-grid">
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Балл считает код</h3><p>Критерии нормируются и взвешиваются программой с фиксированными весами. ИИ отвечает на вопросы вроде «прозвучала ли цена» — но не решает, кто лучше.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Каждый вывод — со ссылкой</h3><p>Под каждым шагом плана — конкретные сделки. Клик открывает ту самую карточку в вашей CRM: можно открыть и убедиться.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Мало данных — не судим</h3><p>Меньше четырёх разобранных закрытых сделок — балла нет, и причина написана словами. «Худший менеджер» из трёх сделок — это не оценка, а поклёп.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Динамика от разбора к разбору</h3><p>Разборы копятся: видно, как меняются баллы команды и каждого менеджера от периода к периоду — сработала ли планёрка.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -694,10 +749,10 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 <section>
   <div class="wrap">
     <div class="sec-head rv"><h2>Три шага. Сами, за один вечер.</h2></div>
-    <div class="steps">
-      <div class="card stp rv"><div class="n">1</div><h3>Подключите воронку</h3><p>Один раз, самостоятельно: вебхук Bitrix24 или токен amoCRM, доступ только на чтение. В CRM ничего не меняется, отключить можно в любой момент.</p></div>
-      <div class="card stp rv"><div class="n">2</div><h3>Выберите, кого разбирать</h3><p>Менеджеры — галочками, объём — на человека. Сколько сделок и минут займёт разбор, видно до запуска.</p></div>
-      <div class="card stp rv"><div class="n">3</div><h3>Получите разбор</h3><p>Разбор идёт в фоне и переживает закрытие окна. Готовый отчёт — на экране: скопируйте его команде или выгрузите в Excel и PDF.</p></div>
+    <div class="tl rv">
+      <div class="tl-step"><div class="n">1</div><h3>Подключите воронку</h3><p>Один раз, самостоятельно: вебхук Bitrix24 или токен amoCRM, доступ только на чтение. В CRM ничего не меняется, отключить можно в любой момент.</p></div>
+      <div class="tl-step"><div class="n">2</div><h3>Выберите, кого разбирать</h3><p>Менеджеры — галочками, объём — на человека. Сколько сделок и минут займёт разбор, видно до запуска.</p></div>
+      <div class="tl-step"><div class="n">3</div><h3>Получите разбор</h3><p>Разбор идёт в фоне и переживает закрытие окна. Готовый отчёт — на экране: скопируйте его команде или выгрузите в Excel и PDF.</p></div>
     </div>
   </div>
 </section>
@@ -708,15 +763,11 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
     <div class="sec-head rv">
       <h2>Записи — вещь чувствительная.<br/>Мы к ним так и относимся.</h2>
     </div>
-    <div class="grid2">
-      <div class="card res rv"><div class="ic">🔒</div><h3>Только чтение</h3>
-        <p>Права на запись не просим — вебхук остаётся только на чтение. Удалить его можно в CRM в один клик, и доступ закрыт.</p></div>
-      <div class="card res rv"><div class="ic">🕶</div><h3>Имена в ИИ не уходят</h3>
-        <p>Модель видит «Менеджер #1», а не фамилии. Имена, телефоны и адреса из переписки заменяются на метки до отправки; настоящие имена остаются в приложении.</p></div>
-      <div class="card res rv"><div class="ic">✋</div><h3>Два отдельных согласия</h3>
-        <p>Текст переписки и записи звонков разбираются только после вашего явного «да» на каждое. Без согласия на аудио звонки остаются числами: сколько, когда, сколько длились.</p></div>
-      <div class="card res rv"><div class="ic">💻</div><h3>Отчёты — на вашем компьютере</h3>
-        <p>Разборы хранятся локально, в приложении. Менеджерам ничего устанавливать не нужно — они разбор вообще не заметят.</p></div>
+    <div class="priv rv">
+      <div class="priv-row"><span class="pic">🔒</span><div><h3>Только чтение</h3><p>Права на запись не просим — вебхук остаётся только на чтение. Удалить его можно в CRM в один клик, и доступ закрыт.</p></div></div>
+      <div class="priv-row"><span class="pic">🕶</span><div><h3>Имена в ИИ не уходят</h3><p>Модель видит «Менеджер #1», а не фамилии. Имена, телефоны и адреса из переписки заменяются на метки до отправки; настоящие имена остаются в приложении.</p></div></div>
+      <div class="priv-row"><span class="pic">✋</span><div><h3>Два отдельных согласия</h3><p>Текст переписки и записи звонков разбираются только после вашего явного «да» на каждое. Без согласия на аудио звонки остаются числами: сколько, когда, сколько длились.</p></div></div>
+      <div class="priv-row"><span class="pic">💻</span><div><h3>Отчёты — на вашем компьютере</h3><p>Разборы хранятся локально, в приложении. Менеджерам ничего устанавливать не нужно — они разбор вообще не заметят.</p></div></div>
     </div>
   </div>
 </section>
@@ -740,7 +791,7 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
       </details>
       <details>
         <summary>Сколько это стоит?</summary>
-        <div class="fa">Речевая аналитика входит в расширенный тариф UNIQORE; базовая подписка — $199 в месяц. Напишите нам — покажем разбор на ваших данных и подберём тариф под размер команды.</div>
+        <div class="fa">Первый разбор — бесплатно: скачайте приложение и прогоните его на своих данных. Дальше речевая аналитика входит в расширенный тариф UNIQORE; базовая подписка — $199 в месяц. Напишите нам — подберём тариф под размер команды.</div>
       </details>
       <details>
         <summary>Это работает на казахстанских компаниях?</summary>
@@ -750,13 +801,18 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   </div>
 </section>
 
-<!-- PRICE -->
-<section>
+<!-- GET -->
+<section id="get">
   <div class="wrap">
-    <div class="price rv">
-      <div class="big">Расширенный тариф</div>
-      <p>Один разбор заменяет неделю прослушивания звонков руками. <b>Участники пилота получают первый разбор на своих данных и личный онбординг с основателями.</b></p>
-      <a class="btn btn-primary" href="mailto:hi@uniqore.ai?subject=UNIQORE%20speech%20pilot">В пилот →</a>
+    <div class="get-card rv">
+      <span class="free">Первый разбор — бесплатно</span>
+      <h2>Попробуйте на своих звонках.</h2>
+      <p>Скачайте Uniqore, подключите CRM и получите первый разбор целиком — бесплатно, на ваших данных. Дальше — расширенный тариф; базовая подписка $199/мес.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-xl" href="/download/">Скачать для macOS</a>
+        <a class="btn btn-ghost btn-xl" href="/download/">Скачать для Windows</a>
+      </div>
+      <div class="get-note">Первый разбор — бесплатно · карта не нужна</div>
     </div>
   </div>
 </section>
@@ -960,6 +1016,29 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
     'Начните с общей бреши: в 21 из 40 разговоров нет следующего шага. Включите звонок Айгерим по сделке 1201 как образец, затем раздайте по одному шагу из плана каждого. Блок плана копируется в чат команды одним нажатием.');
   wire('chipTrust', 'Насколько можно верить оценкам?',
     'Балл считает программа по открытой методике: 8 критериев, фиксированные веса. Суждения ИИ привязаны к конкретным сделкам — любую можно открыть в CRM и проверить. А если закрытых сделок меньше четырёх, балл не ставится вовсе.');
+
+
+  // свёртки разделов мока
+  document.querySelectorAll('.amk .sub-toggle').forEach(function(tg){
+    tg.addEventListener('click', function(){
+      var host = tg.closest('.sub-head-row') || tg;
+      var panel = host.nextElementSibling;
+      if(!panel || !panel.classList.contains('acard')) return;
+      panel.hidden = !panel.hidden;
+      var ch = tg.querySelector('.chev');
+      if(ch) ch.classList.toggle('open', !panel.hidden);
+    });
+  });
+  // меню «Выгрузить»
+  var expBtn = document.getElementById('expBtn');
+  var expMenu = document.getElementById('expMenu');
+  if(expBtn && expMenu){
+    expBtn.addEventListener('click', function(e){ e.stopPropagation(); expMenu.hidden = !expMenu.hidden; });
+    expMenu.querySelectorAll('.menu-item').forEach(function(mi){
+      mi.addEventListener('click', function(){ expMenu.hidden = true; });
+    });
+    document.addEventListener('click', function(){ expMenu.hidden = true; });
+  }
 
   // copy email
   var btn = document.getElementById('copyBtn');
