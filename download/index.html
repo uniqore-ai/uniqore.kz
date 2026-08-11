@@ -82,7 +82,7 @@
              <a class="btn btn-primary" href="https://api.uniqore.ai/download/darwin">Скачать .dmg</a>
              (слаг платформы — PLATFORMS в cto-server/src/routes/releases.rs) -->
         <a class="btn btn-primary" aria-disabled="true" role="link">Скоро</a>
-        <div class="note">Только Apple Silicon (M-серия) · Intel не поддерживается</div>
+        <div class="note">Только Apple Silicon (M-серия); Intel не поддерживается</div>
       </div>
       <div class="card plat rv">
         <div class="os">🪟</div>
@@ -122,11 +122,13 @@
         <h3>Одно окно в меню-баре</h3>
         <p>Свернулось в строку вопроса, развернулось в рабочее пространство. Вызывается в один клик.</p></div>
       <div class="card res rv"><div class="ic">🔒</div>
-        <h3>CRM — только на чтение</h3>
-        <p>Bitrix24 / amoCRM подключаются в режиме read-only. В ваших системах ничего не меняется.</p></div>
+        <h3>Ничего не меняет в вашей CRM</h3>
+        <p>Подключается к Bitrix24 / amoCRM без права записи: смотрит и анализирует,
+          в ваших системах всё остаётся как было.</p></div>
       <div class="card res rv"><div class="ic">🔑</div>
-        <h3>Секреты — write-once</h3>
-        <p>Токен записывается один раз и никогда не читается обратно — ни клиентом, ни интерфейсом.</p></div>
+        <h3>Доступы под замком</h3>
+        <p>Ключ подключения сохраняется один раз, и прочитать его обратно нельзя —
+          ни в приложении, ни на сайте.</p></div>
     </div>
   </div>
 </section>
@@ -156,7 +158,7 @@
       <a href="https://uniqore.ai/" hreflang="en" rel="alternate">Eng ↗</a>
       <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
     </div>
-    <div class="foot-copy">© 2026 UNIQORE · Казахстан</div>
+    <div class="foot-copy">© 2026 UNIQORE, Казахстан</div>
   </div>
 </footer>
 

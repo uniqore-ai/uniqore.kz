@@ -51,6 +51,14 @@
 .flag-link{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:13.5px;margin-top:12px}
 .pains2{grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto}
 @media (max-width:700px){ .pains2{grid-template-columns:1fr} }
+/* тултип-расшифровка (FOMO) */
+.q{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;
+  background:var(--surface-3);border:1px solid var(--line-strong);color:var(--ink-2);font-size:11px;font-weight:800;
+  vertical-align:3px;cursor:help;position:relative;margin-left:4px}
+.q .qq{position:absolute;left:50%;bottom:130%;transform:translateX(-50%);width:250px;background:var(--ink);color:#edeef7;
+  font-size:11.5px;font-weight:600;line-height:1.45;text-align:left;padding:10px 12px;border-radius:10px;
+  box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transition:.15s;z-index:20;pointer-events:none}
+.q:hover .qq,.q:focus .qq{opacity:1;visibility:visible}
 /* лестница цен */
 .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:960px;margin:0 auto}
 .tier{padding:20px;text-align:center;position:relative}
@@ -58,6 +66,9 @@
 .tier .pr{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:8px 0 2px}
 .tier .pr small{font-size:12px;color:var(--ink-3);font-weight:700}
 .tier p{font-size:12.5px;color:var(--ink-2);line-height:1.45;margin-top:6px}
+.tier ul{list-style:none;margin:10px 0 0;padding:0;text-align:left}
+.tier li{font-size:12.5px;color:var(--ink-2);line-height:1.45;padding:4px 0 4px 18px;position:relative}
+.tier li::before{content:'';position:absolute;left:0;top:10px;width:10px;height:10px;border-radius:4px;background:var(--grad);opacity:.85}
 .tier.free{border-color:rgba(109,94,248,.4);background:var(--grad-soft)}
 .tier .btn{margin-top:12px}
 .tiers-note{text-align:center;max-width:640px;margin:20px auto 0;font-size:13.5px;color:var(--ink-2);font-weight:600;line-height:1.5}
@@ -226,24 +237,24 @@
     <a class="btn btn-primary btn-xl" href="/download/">Скачать</a>
     <a class="btn btn-ghost btn-xl" href="mailto:hi@uniqore.ai?subject=UNIQORE">Написать нам</a>
   </div>
-  <div class="trust"><b>macOS (Apple Silicon)</b> и <b>Windows</b> · Free to try · CRM подключается только на чтение</div>
+  <div class="trust"><b>macOS (Apple Silicon)</b> и <b>Windows</b>. Free to try — начните бесплатно.</div>
 </header>
 
 <!-- БОЛИ -->
 <section>
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>Две настоящие боли.</h2>
-      <p>Мы обожаем фаундеров: они умеют принимать решения, принимать их быстро
-        и видеть возможности для своего бизнеса везде. Но сегодня у них две настоящие боли.</p>
+      <h2>Узнаёте себя?</h2>
+      <p>Вы умеете принимать решения, принимать их быстро и видеть возможности
+        для бизнеса везде. Но эти два ощущения знакомы почти каждому владельцу.</p>
     </div>
     <div class="grid3 pains2">
       <div class="card res rv"><div class="ic">😨</div>
-        <h3>FOMO от ИИ</h3>
-        <p>Кажется, что «везде уже агенты всю работу делают, а я как лох всё сам».</p></div>
+        <h3>FOMO от ИИ <span class="q" tabindex="0">?<span class="qq">FOMO — Fear of Missing Out, «страх упустить»: ощущение, что все вокруг уже пользуются ИИ, а вы отстаёте.</span></span></h3>
+        <p>Кажется, что у всех уже ИИ делает работу — и только вы всё ещё делаете всё сами.</p></div>
       <div class="card res rv"><div class="ic">🧗</div>
-        <h3>Непонятно, с чего начать, и страшно</h3>
-        <p>Порог входа в инструменты огромный, особенно в вайб-кодинг.</p></div>
+        <h3>Страшно и непонятно, с чего начать</h3>
+        <p>Инструментов много, порог входа высокий, а спросить некого.</p></div>
     </div>
     <div class="cat-note rv">UNIQORE снимает FOMO, убирает порог входа и даёт результат уже в первые дни —
       а не после «внедрения за полгода». <a href="/mission/">Почему мы этим занимаемся →</a></div>
@@ -259,7 +270,7 @@
 
     <div class="feat rv">
       <div class="card feat-txt">
-        <div class="kick">Фича 1 · сегодня</div>
+        <div class="kick">Фича 1 — сегодня</div>
         <h3>ИИ-Партнёр</h3>
         <p>Чат, который знает про ваш бизнес и помогает принимать предпринимательские решения.
           Результат разговора — не только текст. ИИ-Партнёр выдаёт:</p>
@@ -273,7 +284,7 @@
       </div>
       <div class="feat-chat">
         <aside class="mock-chat">
-          <div class="mc-head"><div class="orb"></div><div><div class="t">UNIQORE</div><div class="s">ИИ-Партнёр · демо</div></div></div>
+          <div class="mc-head"><div class="orb"></div><div><div class="t">UNIQORE</div><div class="s">ИИ-Партнёр — демо</div></div></div>
           <div class="mc-scroll" id="chat">
             <div class="msg agent">Я знаю контекст вашего бизнеса. Спросите про решение, которое сейчас перед вами, — отвечу не «в среднем по интернету», а про вашу ситуацию.</div>
           </div>
@@ -289,14 +300,14 @@
 
     <div class="feat rv">
       <div class="card feat-txt">
-        <div class="kick">Фича 2 · сегодня</div>
+        <div class="kick">Фича 2 — сегодня</div>
         <h3>Готовые автоматизации</h3>
         <p>Раздел, где готовую автоматизацию для бизнеса получаешь в несколько кликов.
-          Раздел живой: новые автоматизации будут появляться постоянно, каждая версионируется по vX.Y.Z.</p>
+          Раздел живой: новые автоматизации выходят постоянно — в той же подписке.</p>
         <div class="tagrow">
-          <span class="pill live">Продажи · сейчас</span>
-          <span class="pill plan">Финансы · будущее</span>
-          <span class="pill plan">Маркетинг · будущее</span>
+          <span class="pill live">Продажи</span>
+          <span class="pill plan">Финансы — в планах</span>
+          <span class="pill plan">Маркетинг — в планах</span>
           <span class="pill build">Скоро: ABCD-анализ</span>
         </div>
       </div>
@@ -311,7 +322,7 @@
 
     <div class="feat rv">
       <div class="card feat-txt" style="grid-column:1/-1">
-        <div class="kick">Фича 3 · будущее</div>
+        <div class="kick">Фича 3 — будущее</div>
         <h3>Автопилот <span class="pill plan" style="vertical-align:2px;margin-left:6px">process mining</span></h3>
         <p>Автопилот детектирует действия на компьютере (с вашего разрешения) и сам предлагает готовые
           автоматизации под то, что вы и так делаете руками каждый день.
@@ -325,10 +336,11 @@
 <section>
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>Мы не конкурируем с ChatGPT и Claude.</h2>
-      <p>И не заменяем их. UNIQORE — <b>навигатор в мире ИИ</b>: помогает выбрать инструмент
-        и довести до результата в нём — например, в Claude Code или Codex.
-        Мы не боимся, что вы «уйдёте», — потому что мы не то, что можно этим заменить.</p>
+      <h2>Чем это отличается от ChatGPT?</h2>
+      <p>Тем, что UNIQORE погружён в ваши процессы и данные. ChatGPT отвечает
+        средним по интернету — UNIQORE знает ваш бизнес и отвечает про него.
+        А если задача решается другим ИИ-инструментом, он подскажет каким
+        и доведёт до результата в нём.</p>
     </div>
   </div>
 </section>
@@ -336,39 +348,19 @@
 <!-- ПОЧЕМУ ДЕСКТОП -->
 <section>
   <div class="wrap">
-    <div class="sec-head rv"><h2>Почему десктоп, а не вкладка в браузере.</h2></div>
+    <div class="sec-head rv"><h2>Живёт на вашем компьютере, а не во вкладке.</h2></div>
     <div class="grid3">
       <div class="card res rv"><div class="ic">📌</div>
-        <h3>Больше, чем вкладка</h3>
-        <p>Вкладку в браузере закрыть очень легко — мы хотим быть больше, чем вкладкой.</p></div>
+        <h3>Всегда под рукой</h3>
+        <p>Один клик в меню-баре — и он рядом. Не потеряется среди десятков вкладок браузера.</p></div>
       <div class="card res rv"><div class="ic">👀</div>
         <h3>Видит, как вы работаете</h3>
-        <p>Мы хотим видеть, что происходит на компьютере — естественно, с вашего разрешения.
-          Без этого нет Автопилота.</p></div>
+        <p>С вашего разрешения замечает, что вы делаете руками каждый день, —
+          и предлагает автоматизации именно под это.</p></div>
       <div class="card res rv"><div class="ic">🧭</div>
-        <h3>Роутит в другие инструменты</h3>
-        <p>Десктоп позволяет вести вас в другие инструменты и быть навигатором, не боясь замены собой.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ПРИНЦИПЫ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Числа считает Rust.<br/>Модель говорит только о содержании.</h2>
-    </div>
-    <div class="grid3">
-      <div class="card res rv"><div class="ic">🔢</div>
-        <h3>Цифры не «сочиняются»</h3>
-        <p>Ни одна цифра, которую вы видите, не придумана LLM — все расчёты детерминированы.</p></div>
-      <div class="card res rv"><div class="ic">🔒</div>
-        <h3>CRM — только на чтение</h3>
-        <p>Секреты записываются один раз и никогда не читаются обратно. Сырые сделки не покидают ядро —
-          модель видит только агрегаты.</p></div>
-      <div class="card res rv"><div class="ic">🪟</div>
-        <h3>Одно окно</h3>
-        <p>Живёт в меню-баре: свернулось в строку вопроса, развернулось в рабочее пространство.</p></div>
+        <h3>Доводит до результата</h3>
+        <p>Откроет нужный ИИ-инструмент и проведёт в нём до конца — не бросая вас
+          наедине с новой программой.</p></div>
     </div>
   </div>
 </section>
@@ -377,34 +369,46 @@
 <section>
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>Платите по мере того, как понимаете ценность.</h2>
-      <p>Это воронка вовлечения, а не прайс-лист: платить больше имеет смысл тогда,
-        когда инструмент уже доказал ценность.</p>
+      <h2>Не платите, пока не увидите ценность.</h2>
+      <p>Начните бесплатно. Подписка — когда UNIQORE уже приносит пользу.</p>
     </div>
     <div class="tiers rv">
       <div class="card tier free">
-        <div class="nm">Free to try</div>
+        <div class="nm">Попробовать</div>
         <div class="pr">$0</div>
-        <p>Начните бесплатно.</p>
+        <ul>
+          <li>ИИ-Партнёр — познакомиться и получить первые ответы</li>
+          <li>Первый разбор речевой аналитики — бесплатно</li>
+        </ul>
         <a class="btn btn-primary btn-sm" href="/download/">Скачать</a>
       </div>
       <div class="card tier">
         <div class="nm">Минимальная</div>
         <div class="pr">$20<small>/мес</small></div>
-        <p>За одного пользователя.</p>
+        <ul>
+          <li>ИИ-Партнёр каждый день, без ограничений</li>
+          <li>Одна готовая автоматизация на выбор</li>
+        </ul>
       </div>
       <div class="card tier">
         <div class="nm">Обычная</div>
         <div class="pr">$100<small>/мес</small></div>
-        <p>За одного пользователя.</p>
+        <ul>
+          <li>Все готовые автоматизации</li>
+          <li>Разборы обновляются регулярно, сами</li>
+        </ul>
       </div>
       <div class="card tier">
         <div class="nm">Максимальная</div>
         <div class="pr">$200<small>/мес</small></div>
-        <p>За одного пользователя.</p>
+        <ul>
+          <li>Всё из «Обычной»</li>
+          <li>Личный онбординг с основателями</li>
+          <li>Новые автоматизации — первым</li>
+        </ul>
       </div>
     </div>
-    <div class="tiers-note rv">Состав тарифов уточняем вместе с первыми клиентами — лестница и принцип уже зафиксированы.</div>
+    <div class="tiers-note rv">Цены — за одного пользователя в месяц.</div>
   </div>
 </section>
 
@@ -561,7 +565,7 @@
       <a href="https://uniqore.ai/" hreflang="en" rel="alternate">Eng ↗</a>
       <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
     </div>
-    <div class="foot-copy">© 2026 UNIQORE · Казахстан</div>
+    <div class="foot-copy">© 2026 UNIQORE, Казахстан</div>
   </div>
 </footer>
 
