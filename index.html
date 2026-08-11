@@ -49,6 +49,8 @@
 .feat-chat .mock-chat{flex:1;border:1px solid var(--line);border-radius:var(--r)}
 .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .flag-link{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:13.5px;margin-top:12px}
+.pains2{grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto}
+@media (max-width:700px){ .pains2{grid-template-columns:1fr} }
 /* лестница цен */
 .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:960px;margin:0 auto}
 .tier{padding:20px;text-align:center;position:relative}
@@ -235,7 +237,7 @@
       <p>Мы обожаем фаундеров: они умеют принимать решения, принимать их быстро
         и видеть возможности для своего бизнеса везде. Но сегодня у них две настоящие боли.</p>
     </div>
-    <div class="grid3" style="grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto">
+    <div class="grid3 pains2">
       <div class="card res rv"><div class="ic">😨</div>
         <h3>FOMO от ИИ</h3>
         <p>Кажется, что «везде уже агенты всю работу делают, а я как лох всё сам».</p></div>
