@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /archive/
 Disallow: /tenders/
 
 Sitemap: https://uniqore.kz/sitemap.xml
