@@ -3,6 +3,25 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>
+(function(){
+  var requested = new URLSearchParams(location.search).get('lang');
+  var saved = null;
+  try { saved = localStorage.getItem('uniqore-language'); } catch (e) {}
+  var browserUsesKazakh = (navigator.languages || [navigator.language || '']).some(function(locale){
+    return String(locale).toLowerCase().split('-')[0] === 'kk';
+  });
+  var language = requested === 'ru' || requested === 'kk'
+    ? requested
+    : (saved === 'ru' || saved === 'kk' ? saved : (browserUsesKazakh ? 'kk' : 'ru'));
+  if (requested === 'ru' || requested === 'kk') {
+    try { localStorage.setItem('uniqore-language',requested); } catch (e) {}
+  }
+  document.documentElement.lang = language;
+  document.documentElement.dataset.language = language;
+  setTimeout(function(){ document.documentElement.classList.add('i18n-ready'); },1500);
+})();
+</script>
 <title>Uniqore — ИИ-Партнёр для предпринимателя</title>
 <meta name="description" content="ИИ, который внедряет в ваш бизнес сам себя. Десктоп-приложение для фаундеров и владельцев малого и среднего бизнеса: ИИ-Партнёр, готовые автоматизации и Автопилот. Free to try, macOS и Windows."/>
 <meta property="og:title" content="Uniqore — ИИ-Партнёр для предпринимателя"/>
@@ -10,9 +29,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/assets/site.css?v=1"/>
+<link rel="stylesheet" href="/assets/language.css?v=2"/>
+<link rel="stylesheet" href="/assets/site.css?v=2"/>
 <link rel="canonical" href="https://uniqore.kz/"/>
 <link rel="alternate" hreflang="ru" href="https://uniqore.kz/"/>
+<link rel="alternate" hreflang="kk" href="https://uniqore.kz/?lang=kk"/>
 <link rel="alternate" hreflang="en" href="https://uniqore.ai/"/>
 <link rel="alternate" hreflang="x-default" href="https://uniqore.kz/"/>
 <link rel="icon" href="/favicon.ico?v=1.0.1" sizes="any"/>
@@ -47,10 +68,86 @@
 .feat-txt li b{color:var(--ink)}
 .feat-chat{overflow:hidden;border-radius:var(--r);display:flex}
 .feat-chat .mock-chat{flex:1;border:1px solid var(--line);border-radius:var(--r)}
-.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.flag-link{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:13.5px;margin-top:12px}
-.pains2{grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto}
-@media (max-width:700px){ .pains2{grid-template-columns:1fr} }
+/* первое знакомство с Юни — как короткое сообщение в чате */
+.yuni-hello{max-width:760px;margin:-8px auto 36px;padding:0;display:flex;align-items:flex-start;gap:12px;
+  position:relative;overflow:visible;color:var(--ink);background:none;border:0;box-shadow:none}
+.yuni-hello-art{width:70px;height:62px;flex:0 0 70px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.yuni-hello-art svg{width:80px;height:70px;position:relative;z-index:1;filter:drop-shadow(0 8px 13px rgba(122,108,255,.3));animation:float 5s ease-in-out infinite}
+.yuni-hello-copy{max-width:680px;padding:14px 18px;position:relative;z-index:1;border:1px solid var(--line);border-radius:6px 16px 16px 16px;
+  background:linear-gradient(145deg,#fff,#fbfbfe);box-shadow:0 8px 24px rgba(47,42,84,.07)}
+.yuni-hello-copy::before{content:'';position:absolute;left:-7px;top:16px;width:12px;height:12px;background:#fff;
+  border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.yuni-hello h3{font-size:15.5px;line-height:1.4;letter-spacing:-.005em}
+.yuni-hello p{font-size:13px;line-height:1.5;color:var(--ink-2);margin-top:5px}
+/* боли: асимметричная диагностика вместо одинаковых карточек */
+.pain-stage{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;max-width:960px;margin:0 auto}
+.pain-card{position:relative;overflow:hidden}
+.pain-tag{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:10px}
+.pain-lead{grid-row:span 2;min-height:336px;padding:30px;display:flex;flex-direction:column;justify-content:flex-end;
+  background:radial-gradient(420px 260px at 100% 0,rgba(109,94,248,.58),transparent 62%),
+    radial-gradient(320px 240px at 0 110%,rgba(17,201,192,.26),transparent 62%),var(--orb-bg);color:#fff}
+.pain-lead::after{content:'?';position:absolute;right:-20px;top:-56px;font-size:230px;font-weight:800;line-height:1;color:rgba(255,255,255,.055)}
+.pain-lead .pain-tag{color:#aaa2ff}
+.pain-lead .pain-q{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.24);color:#fff;vertical-align:1px}
+.pain-lead .pain-q .qq{left:50%;bottom:135%;top:auto;transform:translateX(-50%);width:270px;text-transform:none;letter-spacing:0}
+.pain-no{position:absolute;top:24px;left:28px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#8d94b7}
+.pain-lead h3{max-width:430px;font-size:clamp(25px,3vw,36px);line-height:1.1;letter-spacing:-.025em;position:relative;z-index:1}
+.pain-lead p{max-width:440px;margin-top:15px;color:#bdc1d8;font-size:14px;line-height:1.55;position:relative;z-index:1}
+.pain-side{min-height:159px;padding:24px;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
+.pain-mark{width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:var(--grad-soft);
+  color:var(--violet);font-size:12px;font-weight:800;letter-spacing:.06em;border:1px solid rgba(109,94,248,.18)}
+.pain-side h3{font-size:18px;font-weight:800;letter-spacing:-.015em;margin-bottom:7px}
+.pain-side p{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.pain-ai{background:linear-gradient(135deg,#fff 0%,#f5f1ff 100%);border-color:rgba(109,94,248,.28)}
+.pain-ai .pain-mark{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(109,94,248,.28)}
+/* полный каталог автоматизаций */
+.auto-catalog{margin:0 0 18px;padding:28px}
+.auto-catalog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px}
+.auto-catalog-kick{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:8px}
+.auto-catalog-head h3{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.auto-catalog-head p{font-size:14px;color:var(--ink-2);line-height:1.55;margin-top:7px;max-width:660px}
+.auto-legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;flex-shrink:0;padding-top:2px}
+.auto-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.auto-filter{appearance:none;border:1px solid var(--line-strong);background:var(--surface-2);color:var(--ink-2);border-radius:999px;
+  padding:8px 13px;font:800 11px/1 var(--font);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:.18s}
+.auto-filter:hover{border-color:rgba(109,94,248,.5);color:var(--ink)}
+.auto-filter:focus-visible{outline:3px solid rgba(109,94,248,.3);outline-offset:2px}
+.auto-filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:0 7px 18px rgba(17,19,26,.18)}
+.auto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.auto-card{min-height:190px;border:1px solid var(--line);border-radius:15px;background:var(--surface-2);padding:18px;
+  display:flex;flex-direction:column;transition:opacity .24s ease,filter .24s ease,transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.auto-card.is-dimmed{opacity:.34;filter:saturate(.25)}
+.auto-card.is-highlighted{background:linear-gradient(145deg,#fff,#f6f3ff);border-color:rgba(109,94,248,.35);box-shadow:0 12px 28px rgba(59,48,130,.12);transform:translateY(-2px)}
+.auto-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px}
+.auto-card-icon{width:38px;height:38px;border-radius:11px;background:var(--surface);display:flex;align-items:center;justify-content:center;
+  font-size:18px;border:1px solid var(--line);box-shadow:0 5px 14px rgba(24,28,50,.07)}
+.auto-card h4{font-size:15px;font-weight:800;letter-spacing:-.01em;line-height:1.3;margin-bottom:8px}
+.auto-card p{font-size:12.5px;color:var(--ink-2);line-height:1.48}
+.auto-card a{font-size:12px;font-weight:800;display:inline-block;margin-top:auto;padding-top:12px}
+.auto-card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:13px}
+.auto-card-tag{font-size:8.5px;font-weight:800;letter-spacing:.055em;text-transform:uppercase;color:var(--ink-3);
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 7px}
+.auto-status{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-size:9px;font-weight:800;letter-spacing:.055em;
+  text-transform:uppercase;border-radius:999px;padding:4px 7px}
+.auto-status::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+.auto-status.live{background:rgba(31,191,117,.12);color:#128a55}
+.auto-status.soon{background:rgba(109,94,248,.09);color:var(--violet)}
+/* FAQ */
+.faq{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq details{background:linear-gradient(#fff,#fbfbfe);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 56px 20px 22px;font-size:16px;font-weight:800;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:focus-visible{outline:3px solid rgba(109,94,248,.28);outline-offset:-3px;border-radius:14px}
+.faq summary::after{content:'+';position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:25px;color:var(--violet);font-weight:600}
+.faq details[open] summary::after{content:'−'}
+.faq-answer{padding:0 22px 22px;color:var(--ink-2);font-size:14px;line-height:1.58}
+.faq-answer>p+p{margin-top:10px}
+.faq-answer strong{color:var(--ink)}
+.answer-example{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+.answer-card{padding:15px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:12.5px;line-height:1.5}
+.answer-card.uni{background:var(--grad-soft);border-color:rgba(109,94,248,.24)}
+.answer-card .label{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--ink-3);margin-bottom:7px}
+.answer-card.uni .label{color:var(--violet)}
 /* лестница цен */
 .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:960px;margin:0 auto}
 .tier{padding:20px;text-align:center;position:relative}
@@ -66,9 +163,27 @@
 .tiers-note{text-align:center;max-width:640px;margin:20px auto 0;font-size:13.5px;color:var(--ink-2);font-weight:600;line-height:1.5}
 @media (max-width:900px){
   .feat{grid-template-columns:1fr}
+  .auto-grid{grid-template-columns:repeat(2,1fr)}
   .tiers{grid-template-columns:repeat(2,1fr)}
 }
+@media (max-width:700px){
+  .yuni-hello{max-width:100%}
+  .pain-stage{grid-template-columns:1fr}
+  .pain-lead{grid-row:auto;min-height:300px}
+  .auto-catalog-head{align-items:flex-start;flex-direction:column}
+  .auto-legend{justify-content:flex-start}
+}
 @media (max-width:560px){
+  .yuni-hello{gap:10px;margin:-6px auto 30px}
+  .yuni-hello-art{width:58px;height:54px;flex-basis:58px}
+  .yuni-hello-art svg{width:66px;height:58px}
+  .yuni-hello-copy{padding:13px 14px}.yuni-hello h3{font-size:14.5px}.yuni-hello p{font-size:12.5px}
+  .pain-side{grid-template-columns:42px 1fr;padding:20px}.pain-mark{width:42px;height:42px}
+  .pain-lead .pain-q .qq{bottom:auto;top:135%}
+  .auto-catalog{padding:18px}
+  .auto-grid{grid-template-columns:1fr}
+  .auto-card{min-height:0}
+  .answer-example{grid-template-columns:1fr}
   .tiers{grid-template-columns:1fr}
 }
 </style>
@@ -78,11 +193,23 @@
 
 <nav>
   <div class="nav-in">
-    <a class="nav-home" href="/"><img src="/favicon.svg?v=1.0.1" alt="Uniqore"/><span class="wm">Uniqore</span></a>
+    <a class="nav-home" href="/" aria-label="UNIQORE — на главную"><img class="brand-icon" src="/favicon.svg?v=1.0.1" alt=""/><img class="brand-wordmark" src="/assets/wordmark-dark-v1.2.0.svg" alt="UNIQORE"/></a>
     <a class="nav-link" href="/mission/">Миссия</a>
     <a class="nav-link" href="/speech-analytics/">Речевая аналитика</a>
     <span class="sp"></span>
-    <a class="nav-link" href="https://uniqore.ai/" hreflang="en" rel="alternate">Eng ↗</a>
+    <details class="language-menu">
+      <summary aria-label="Выбрать язык" aria-haspopup="menu">
+        <span class="language-globe" aria-hidden="true">🌐</span>
+        <span class="language-current">Рус</span>
+        <span class="language-current-short">Рус</span>
+        <span class="language-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="language-options" role="menu">
+        <button type="button" role="menuitem" data-language-choice="ru">Рус</button>
+        <button type="button" role="menuitem" data-language-choice="kk">Қаз</button>
+        <a role="menuitem" href="https://uniqore.ai/" target="_blank" hreflang="en" rel="alternate noopener" aria-label="Eng — uniqore.ai">Eng <span class="language-external-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </details>
     <a class="nav-mail" href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
     <a class="btn btn-primary btn-sm" href="/download/">Скачать</a>
   </div>
@@ -237,16 +364,27 @@
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Узнаёте себя?</h2>
-      <p>Вы умеете принимать решения, принимать их быстро и видеть возможности
-        для бизнеса везде. Но эти два ощущения знакомы почти каждому владельцу.</p>
+      <p>Если хоть одна мысль ниже звучала у вас в голове — вы точно не один.</p>
     </div>
-    <div class="grid3 pains2">
-      <div class="card res rv"><div class="ic">😨</div>
-        <h3>FOMO от ИИ <span class="q" tabindex="0">?<span class="qq">FOMO — Fear of Missing Out, «страх упустить»: ощущение, что все вокруг уже пользуются ИИ, а вы отстаёте.</span></span></h3>
-        <p>Кажется, что у всех уже ИИ делает работу — и только вы всё ещё делаете всё сами.</p></div>
-      <div class="card res rv"><div class="ic">🧗</div>
-        <h3>Страшно и непонятно, с чего начать</h3>
-        <p>Инструментов много, порог входа высокий, а спросить некого.</p></div>
+    <div class="pain-stage">
+      <div class="card pain-card pain-lead rv">
+        <div class="pain-no">01</div>
+        <div class="pain-tag">То самое FOMO <span class="q pain-q" tabindex="0" aria-label="Что такое FOMO?">?<span class="qq">FOMO — Fear of Missing Out, «страх упустить»: ощущение, что все вокруг уже пользуются ИИ, а вы отстаёте.</span></span></div>
+        <h3>«Кажется, ИИ уже работает у всех. Кроме меня»</h3>
+        <p>Конкуренты говорят про агентов и автоматизацию, а у вас всё ещё нет понятного первого шага, который даст результат бизнесу.</p>
+      </div>
+      <div class="card pain-card pain-side rv">
+        <div class="pain-mark">02</div>
+        <div><div class="pain-tag">Порог входа</div>
+          <h3>Страшно и непонятно, с чего начать</h3>
+          <p>Инструментов сотни, каждый обещает магию, а разбираться во всём самому просто некогда.</p></div>
+      </div>
+      <div class="card pain-card pain-side pain-ai rv">
+        <div class="pain-mark">03</div>
+        <div><div class="pain-tag">Ноль контекста</div>
+          <h3>Обычный ИИ слишком тупой</h3>
+          <p>Он ничего не знает про ваши сделки, команду и цифры — поэтому выдаёт советы, которые подходят всем и никому.</p></div>
+      </div>
     </div>
     <div class="cat-note rv">Uniqore снимает FOMO, убирает порог входа и даёт результат уже в первые дни —
       а не после «внедрения за полгода». <a href="/mission/">Почему мы этим занимаемся →</a></div>
@@ -257,12 +395,24 @@
 <section>
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>Три ключевые фичи.</h2>
+      <h2>Юни помогает найти где вы теряете и недозарабатываете.</h2>
+      <p>Покажет причину на ваших данных, предложит готовый способ исправить её и поможет довести решение до результата.</p>
+    </div>
+    <div class="card yuni-hello rv">
+      <div class="yuni-hello-art">
+        <svg viewBox="300 200 800 720" role="img" aria-label="Юни — ИИ-Партнёр для предпринимателя">
+          <use href="#yuni"></use>
+        </svg>
+      </div>
+      <div class="yuni-hello-copy">
+        <h3>Привет, я Юни. Сначала узнаю ваш бизнес, потом покажу, где он теряет деньги и возможности.</h3>
+        <p>Для начала хватит CRM, разговоров, цифр или файлов — подключать всё сразу не нужно.</p>
+      </div>
     </div>
 
     <div class="feat rv">
       <div class="card feat-txt">
-        <div class="kick">Фича 1 — сегодня</div>
+        <div class="kick">01 · уже работает</div>
         <h3>ИИ-Партнёр</h3>
         <p>Чат, который знает про ваш бизнес и помогает принимать предпринимательские решения.
           Результат разговора — не только текст. ИИ-Партнёр выдаёт:</p>
@@ -278,7 +428,7 @@
         <aside class="mock-chat">
           <div class="mc-head"><div class="orb"></div><div><div class="t">Uniqore</div><div class="s">ИИ-Партнёр — демо</div></div></div>
           <div class="mc-scroll" id="chat">
-            <div class="msg agent">Я знаю контекст вашего бизнеса. Спросите про решение, которое сейчас перед вами, — отвечу не «в среднем по интернету», а про вашу ситуацию.</div>
+            <div class="msg agent">Задайте вопрос — покажу, как выглядит ответ, когда ИИ знает ваши цифры, воронку и планы, а не пересказывает интернет.</div>
           </div>
           <div class="mc-chips">
             <button class="chip-btn" id="chipDeals">Почему сделки не закрываются?</button>
@@ -290,49 +440,105 @@
       </div>
     </div>
 
-    <div class="feat rv">
-      <div class="card feat-txt">
-        <div class="kick">Фича 2 — сегодня</div>
-        <h3>Готовые автоматизации</h3>
-        <p>Раздел, где готовую автоматизацию для бизнеса получаешь в несколько кликов.
-          Раздел живой: новые автоматизации выходят постоянно — в той же подписке.</p>
-        <div class="tagrow">
-          <span class="pill live">Продажи</span>
-          <span class="pill plan">Финансы — в планах</span>
-          <span class="pill plan">Маркетинг — в планах</span>
-          <span class="pill build">Скоро: ABCD-анализ</span>
+    <div class="card auto-catalog rv">
+      <div class="auto-catalog-head">
+        <div>
+          <div class="auto-catalog-kick">02 · уже работает</div>
+          <h3>Готовые автоматизации</h3>
+          <p>Раздел, где готовую автоматизацию для бизнеса получаешь в несколько кликов. Новые автоматизации выходят постоянно — в той же подписке. Никаких промптов и долгого внедрения.</p>
         </div>
+        <div class="auto-legend"><span class="auto-status live">уже есть</span><span class="auto-status soon">скоро</span></div>
       </div>
-      <div class="card cat">
-        <div class="top"><span class="em">🎙️</span><span class="pill live">флагман</span></div>
-        <h3>Речевая аналитика воронки продаж</h3>
-        <p>Подключаешь Bitrix24 / amoCRM (доступ — только на чтение) и получаешь рейтинг каждого
-          менеджера по реальным звонкам и переписке плюс персональный план для каждого.</p>
-        <a class="flag-link" href="/speech-analytics/">Смотреть страницу автоматизации →</a>
+      <div class="auto-filters" role="group" aria-label="Подсветить автоматизации по направлению">
+        <button class="auto-filter" type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button class="auto-filter" type="button" data-filter="sales" aria-pressed="false">Продажи</button>
+        <button class="auto-filter" type="button" data-filter="marketing" aria-pressed="false">Маркетинг</button>
+        <button class="auto-filter" type="button" data-filter="finance" aria-pressed="false">Финансы</button>
+        <button class="auto-filter" type="button" data-filter="team" aria-pressed="false">Команда</button>
+        <button class="auto-filter" type="button" data-filter="operations" aria-pressed="false">Операции</button>
+      </div>
+      <div class="auto-grid" aria-live="polite">
+        <article class="auto-card" data-categories="sales team">
+          <div class="auto-card-top"><div class="auto-card-icon">🎙️</div><span class="auto-status live">уже есть</span></div>
+          <h4>Речевая аналитика</h4><p>Показывает, где менеджеры теряют сделки, и даёт личный план каждому.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span><span class="auto-card-tag">Команда</span></div><a href="/speech-analytics/">Посмотреть →</a>
+        </article>
+        <article class="auto-card" data-categories="finance operations">
+          <div class="auto-card-top"><div class="auto-card-icon">🏦</div><span class="auto-status soon">скоро</span></div>
+          <h4>ДДС из банковских выписок</h4><p>Разносит операции по статьям и собирает движение денег без ручной таблицы.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span><span class="auto-card-tag">Операции</span></div>
+        </article>
+        <article class="auto-card" data-categories="marketing">
+          <div class="auto-card-top"><div class="auto-card-icon">🕵️</div><span class="auto-status soon">скоро</span></div>
+          <h4>Слежка за конкурентами</h4><p>Собирает изменения цен, товаров и акций конкурентов, чтобы вам не ходить по их сайтам.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Маркетинг</span></div>
+        </article>
+        <article class="auto-card" data-categories="sales">
+          <div class="auto-card-top"><div class="auto-card-icon">📊</div><span class="auto-status live">уже есть</span></div>
+          <h4>Анализ воронки продаж</h4><p>Находит этапы, где застревают и умирают сделки, и считает цену этих потерь.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span></div>
+        </article>
+        <article class="auto-card" data-categories="operations team sales">
+          <div class="auto-card-top"><div class="auto-card-icon">🌅</div><span class="auto-status soon">скоро</span></div>
+          <h4>Ежедневный пульс</h4><p>Каждое утро присылает новые лиды, застрявшие сделки и вчерашние победы одним сообщением.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Операции</span><span class="auto-card-tag">Команда</span></div>
+        </article>
+        <article class="auto-card" data-categories="sales marketing">
+          <div class="auto-card-top"><div class="auto-card-icon">🧮</div><span class="auto-status soon">скоро</span></div>
+          <h4>ABCD-анализ клиентской базы</h4><p>Показывает, кто приносит выручку, кто растёт, кто уснул и кого вы теряете.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span><span class="auto-card-tag">Маркетинг</span></div>
+        </article>
+        <article class="auto-card" data-categories="team sales">
+          <div class="auto-card-top"><div class="auto-card-icon">🏃</div><span class="auto-status soon">скоро</span></div>
+          <h4>Аналитика активности менеджеров по продажам</h4><p>Показывает, кто действительно работал со сделками на этой неделе — по данным CRM.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Команда</span><span class="auto-card-tag">Продажи</span></div>
+        </article>
+        <article class="auto-card" data-categories="team sales">
+          <div class="auto-card-top"><div class="auto-card-icon">🧑‍💼</div><span class="auto-status soon">скоро</span></div>
+          <h4>Личный разбор менеджеру</h4><p>Каждому — только его звонки, ошибки, сильные стороны и следующий шаг.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Команда</span><span class="auto-card-tag">Продажи</span></div>
+        </article>
+        <article class="auto-card" data-categories="sales marketing">
+          <div class="auto-card-top"><div class="auto-card-icon">📄</div><span class="auto-status soon">скоро</span></div>
+          <h4>Персональные КП</h4><p>Готовит коммерческие предложения под тип клиента — на ваших данных и вашем бланке.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span><span class="auto-card-tag">Маркетинг</span></div>
+        </article>
+        <article class="auto-card" data-categories="finance">
+          <div class="auto-card-top"><div class="auto-card-icon">✂️</div><span class="auto-status soon">скоро</span></div>
+          <h4>Косторезка</h4><p>Находит лишние расходы и показывает, сколько можно вернуть в месяц.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span></div>
+        </article>
+        <article class="auto-card" data-categories="finance">
+          <div class="auto-card-top"><div class="auto-card-icon">📈</div><span class="auto-status soon">скоро</span></div>
+          <h4>ОПиУ</h4><p>Собирает понятный отчёт о прибыли и убытках из ваших файлов.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span></div>
+        </article>
+        <article class="auto-card" data-categories="finance operations">
+          <div class="auto-card-top"><div class="auto-card-icon">💸</div><span class="auto-status soon">скоро</span></div>
+          <h4>Рентген денежного потока</h4><p>Показывает, куда реально уходят деньги и где можно сэкономить — по банковским выпискам.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span><span class="auto-card-tag">Операции</span></div>
+        </article>
+        <article class="auto-card" data-categories="finance sales">
+          <div class="auto-card-top"><div class="auto-card-icon">⏳</div><span class="auto-status soon">скоро</span></div>
+          <h4>Радар должников</h4><p>Показывает, кто вам должен, сколько и как давно — до того, как долг станет списанием.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span><span class="auto-card-tag">Продажи</span></div>
+        </article>
+        <article class="auto-card" data-categories="marketing sales">
+          <div class="auto-card-top"><div class="auto-card-icon">🎯</div><span class="auto-status soon">скоро</span></div>
+          <h4>RFM-анализ клиентской базы</h4><p>Показывает, кому продавать снова, кого пора вернуть и на кого не тратить бюджет.</p>
+          <div class="auto-card-tags"><span class="auto-card-tag">Маркетинг</span><span class="auto-card-tag">Продажи</span></div>
+        </article>
       </div>
     </div>
 
     <div class="feat rv">
       <div class="card feat-txt" style="grid-column:1/-1">
-        <div class="kick">Фича 3 — будущее</div>
+        <div class="kick">03 · дальше</div>
         <h3>Автопилот <span class="pill plan" style="vertical-align:2px;margin-left:6px">process mining</span></h3>
         <p>Автопилот детектирует действия на компьютере (с вашего разрешения) и сам предлагает готовые
           автоматизации под то, что вы и так делаете руками каждый день.
           Это и есть «ИИ, который внедряет сам себя» в полной форме.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ПОЗИЦИОНИРОВАНИЕ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Чем это отличается от ChatGPT и Claude Code?</h2>
-      <p>Тем, что Uniqore погружён в ваши процессы и данные. ChatGPT отвечает
-        средним по интернету — Uniqore знает ваш бизнес и отвечает про него.
-        А когда задача по плечу другому инструменту — например, Claude Code, —
-        подскажет его и доведёт до результата в нём.</p>
     </div>
   </div>
 </section>
@@ -344,15 +550,14 @@
     <div class="grid3">
       <div class="card res rv"><div class="ic">📌</div>
         <h3>Всегда под рукой</h3>
-        <p>Один клик в меню-баре — и он рядом. Не потеряется среди десятков вкладок браузера.</p></div>
+        <p>Один клик в меню-баре — и он рядом. Не потеряется среди десятков вкладок и не тормозит работу, пока ждёт вашего вопроса.</p></div>
       <div class="card res rv"><div class="ic">👀</div>
         <h3>Видит, как вы работаете</h3>
         <p>С вашего разрешения замечает, что вы делаете руками каждый день, —
           и предлагает автоматизации именно под это.</p></div>
       <div class="card res rv"><div class="ic">🧭</div>
-        <h3>Доводит до результата</h3>
-        <p>Откроет нужный ИИ-инструмент и проведёт в нём до конца — не бросая вас
-          наедине с новой программой.</p></div>
+        <h3>Не бросит вас на полпути, а доведёт до результата</h3>
+        <p>Откроет нужный ИИ-инструмент и проведёт в нём до конца — даже если раньше вы им не пользовались.</p></div>
     </div>
   </div>
 </section>
@@ -403,6 +608,54 @@
       </div>
     </div>
     <div class="tiers-note rv">Цены — за одного пользователя в месяц.</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Частые вопросы.</h2></div>
+    <div class="faq rv">
+      <details open>
+        <summary>Чем Uniqore отличается от ChatGPT и Claude Code?</summary>
+        <div class="faq-answer">
+          <p><strong>Юни знает всё про ваш бизнес, что вы ему подключили и рассказали, — поэтому даёт не общие советы, а конкретный ответ по вашим данным.</strong></p>
+          <p>ChatGPT и Claude Code остаются сильными инструментами. Юни понимает, когда они нужны, подготовит задачу и поможет довести её до результата.</p>
+          <div class="answer-example">
+            <div class="answer-card"><span class="label">Обычный ИИ</span>«Обучите менеджеров выявлять потребность и всегда фиксировать следующий шаг».</div>
+            <div class="answer-card uni"><span class="label">Юни после разбора ваших звонков</span>«У Менеджера #2 следующий шаг согласован только в 2 из 8 сделок. В отказах клиенты уходят без даты следующего контакта. Вот три сделки с цитатами и личный план на неделю».</div>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>С какой автоматизации лучше начать?</summary>
+        <div class="faq-answer"><p>Необязательно выбирать по названию. Расскажите Юни, где сейчас болит: проседают продажи, непонятны расходы, менеджеры работают по-разному. Он уточнит контекст и предложит самый короткий путь к первому полезному результату.</p></div>
+      </details>
+      <details>
+        <summary>Когда я увижу первый результат?</summary>
+        <div class="faq-answer"><p>Первые полезные ответы можно получить уже при знакомстве с Юни. Готовой автоматизации понадобится время на подключение и разбор ваших данных, но речь идёт о первых днях, а не о многомесячном внедрении.</p></div>
+      </details>
+      <details>
+        <summary>Нужно разбираться в ИИ и писать промпты?</summary>
+        <div class="faq-answer"><p>Нет. Вы описываете задачу обычными словами или выбираете готовую автоматизацию. Юни сам предложит следующий шаг и нужный инструмент.</p></div>
+      </details>
+      <details>
+        <summary>Нужно сразу подключать все данные компании?</summary>
+        <div class="faq-answer"><p>Нет. Начните с одного вопроса и одного нужного источника — например, CRM для анализа продаж или банковских выписок для ДДС. Остальной контекст можно добавлять постепенно, когда он действительно понадобится.</p></div>
+      </details>
+      <details>
+        <summary>Uniqore что-то меняет в моей CRM?</summary>
+        <div class="faq-answer"><p>Нет. Bitrix24 и amoCRM подключаются только на чтение: Uniqore анализирует данные, но не меняет сделки, поля и настройки.</p></div>
+      </details>
+      <details>
+        <summary>Какие CRM уже поддерживаются?</summary>
+        <div class="faq-answer"><p>Сейчас в фокусе Bitrix24 и amoCRM. Поддержку других CRM будем добавлять по спросу. Если у вас другая система, напишите на <a href="mailto:hi@uniqore.ai?subject=CRM%20для%20Uniqore">hi@uniqore.ai</a> — проверим, как быстрее подключить ваши данные.</p></div>
+      </details>
+      <details>
+        <summary>Что делать, если нужной автоматизации ещё нет?</summary>
+        <div class="faq-answer"><p>Опишите задачу Юни. Он может предложить путь через подходящий ИИ-инструмент, а запрос на новую готовую автоматизацию попадёт команде. Приоритеты каталога мы формируем из реальных дорогих задач предпринимателей.</p></div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -572,6 +825,21 @@ document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 /* safety: never leave content hidden */
 setTimeout(function(){ document.querySelectorAll('.rv:not(.on)').forEach(function(el){ el.classList.add('on'); }); }, 3000);
 
+/* подсветка каталога по направлению: карточки остаются на месте */
+var autoFilters = document.querySelectorAll('.auto-filter');
+var autoCards = document.querySelectorAll('.auto-card');
+autoFilters.forEach(function(button){
+  button.addEventListener('click', function(){
+    var filter = button.dataset.filter;
+    autoFilters.forEach(function(item){ item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
+    autoCards.forEach(function(card){
+      var matches = filter === 'all' || card.dataset.categories.split(' ').indexOf(filter) !== -1;
+      card.classList.toggle('is-dimmed', !matches);
+      card.classList.toggle('is-highlighted', filter !== 'all' && matches);
+    });
+  });
+});
+
 /* chat demo: роутинг ИИ-Партнёра */
 var chat = document.getElementById('chat');
 function push(kind, text, delay, html){
@@ -585,17 +853,17 @@ function push(kind, text, delay, html){
 document.getElementById('chipDeals').addEventListener('click', function(){
   this.disabled = true;
   push('user', 'Почему сделки не закрываются?');
-  push('agent', 'Это вопрос к реальным разговорам ваших менеджеров, а не к цифрам CRM. У меня есть готовая автоматизация под это: <a href="/speech-analytics/">«Речевая аналитика воронки продаж»</a> — подключите CRM на чтение и получите рейтинг каждого менеджера и персональный план. Открыть?', 500, true);
+  push('agent', '<strong>Нашёл утечку: 11 из 29 проигранных сделок умерли не из-за цены.</strong> Менеджеры презентуют продукт до того, как клиент сам сформулирует боль, — а на «дорого» сразу дают скидку. У лучших порядок обратный: два уточняющих вопроса → цена бездействия → решение.<span class="msg-insight"><b>Потенциал:</b> +4–6 сделок в месяц без роста трафика, если закрепить три диагностических вопроса перед демо.</span><a href="/speech-analytics/">Показать фрагменты звонков →</a>', 500, true);
 });
 document.getElementById('chipTool').addEventListener('click', function(){
   this.disabled = true;
   push('user', 'Каким ИИ-инструментом сделать лендинг?');
-  push('agent', 'Для вашей задачи я бы взял Claude Code: дам пошаговую инструкцию под ваш сайт и готовый промпт для первой версии. Я навигатор — доведу до результата в самом инструменте.', 450);
+  push('agent', '<strong>Ваш главный риск — не выбрать «не тот ИИ», а сделать один усреднённый лендинг для трёх разных каналов.</strong> Тёплому трафику важен контекст бизнеса, холодному трафику в Казахстане — конкретная потеря денег, аудитории из США — скорость внедрения и окупаемость.<span class="msg-insight"><b>Я бы взял Claude Code:</b> сайт уже живёт в коде, поэтому он сохранит дизайн-систему и быстро соберёт три варианта первого экрана. Тестировать стоит обещание, а не цвет кнопки.</span>Главная метрика — переход к нужной автоматизации или скачиванию, а не время на странице.', 450, true);
 });
 document.getElementById('chipPrompt').addEventListener('click', function(){
   this.disabled = true;
   push('user', 'Дай промпт для описания вакансии');
-  push('agent', 'Готово — промпт собран из контекста вашего бизнеса: роль, продукт, стадия компании уже подставлены. Остаётся вставить его в любой чат-ИИ.', 400);
+  push('agent', '<strong>Сначала важное: вам нужен не просто менеджер по продажам, а менеджер-диагност.</strong> Основная потеря происходит после демо, поэтому кандидат должен уметь выяснять цену бездействия клиента, а не только выполнять план по звонкам.<span class="msg-insight"><b>Ядро промпта:</b> «Опиши роль через результат первых 90 дней. Добавь анти-портрет кандидата и тест-кейс: разобрать реальный звонок, найти упущенную боль и предложить следующий вопрос клиенту».</span>Так вакансия отсеет людей с красивым резюме, но слабой диагностикой ещё до интервью.', 400, true);
 });
 
 /* copy email */
@@ -607,5 +875,6 @@ document.getElementById('copyBtn').addEventListener('click', function(){
   }).catch(function(){ btn.textContent = 'hi@uniqore.ai'; });
 });
 </script>
+<script src="/assets/i18n.js?v=11"></script>
 </body>
 </html>

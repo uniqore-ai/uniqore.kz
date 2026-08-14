@@ -3,6 +3,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>
+(function(){
+  var requested = new URLSearchParams(location.search).get('lang');
+  var saved = null;
+  try { saved = localStorage.getItem('uniqore-language'); } catch (e) {}
+  var browserUsesKazakh = (navigator.languages || [navigator.language || '']).some(function(locale){ return String(locale).toLowerCase().split('-')[0] === 'kk'; });
+  var language = requested === 'ru' || requested === 'kk' ? requested : (saved === 'ru' || saved === 'kk' ? saved : (browserUsesKazakh ? 'kk' : 'ru'));
+  if (requested === 'ru' || requested === 'kk') { try { localStorage.setItem('uniqore-language',requested); } catch (e) {} }
+  document.documentElement.lang = language;
+  document.documentElement.dataset.language = language;
+  setTimeout(function(){ document.documentElement.classList.add('i18n-ready'); },1500);
+})();
+</script>
 <title>Миссия Uniqore — мы обожаем фаундеров</title>
 <meta name="description" content="Три качества фаундеров и две настоящие боли: FOMO от ИИ и «непонятно, с чего начать». Uniqore снимает FOMO, убирает порог входа и даёт результат в первые дни."/>
 <meta property="og:title" content="Миссия Uniqore — мы обожаем фаундеров"/>
@@ -10,8 +23,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/assets/site.css?v=1"/>
+<link rel="stylesheet" href="/assets/language.css?v=2"/>
+<link rel="stylesheet" href="/assets/site.css?v=2"/>
 <link rel="canonical" href="https://uniqore.kz/mission/"/>
+<link rel="alternate" hreflang="ru" href="https://uniqore.kz/mission/"/>
+<link rel="alternate" hreflang="kk" href="https://uniqore.kz/mission/?lang=kk"/>
+<link rel="alternate" hreflang="en" href="https://uniqore.ai/"/>
+<link rel="alternate" hreflang="x-default" href="https://uniqore.kz/mission/"/>
 <link rel="icon" href="/favicon.ico?v=1.0.1" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1.0.1"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1.0.1"/>
@@ -56,11 +74,14 @@
 
 <nav>
   <div class="nav-in">
-    <a class="nav-home" href="/"><img src="/favicon.svg?v=1.0.1" alt="Uniqore"/><span class="wm">Uniqore</span></a>
+    <a class="nav-home" href="/" aria-label="UNIQORE — на главную"><img class="brand-icon" src="/favicon.svg?v=1.0.1" alt=""/><img class="brand-wordmark" src="/assets/wordmark-dark-v1.2.0.svg" alt="UNIQORE"/></a>
     <a class="nav-link" href="/mission/">Миссия</a>
     <a class="nav-link" href="/speech-analytics/">Речевая аналитика</a>
     <span class="sp"></span>
-    <a class="nav-link" href="https://uniqore.ai/" hreflang="en" rel="alternate">Eng ↗</a>
+    <details class="language-menu">
+      <summary aria-label="Выбрать язык" aria-haspopup="menu"><span class="language-globe" aria-hidden="true">🌐</span><span class="language-current">Рус</span><span class="language-current-short">Рус</span><span class="language-chevron" aria-hidden="true"></span></summary>
+      <div class="language-options" role="menu"><button type="button" role="menuitem" data-language-choice="ru">Рус</button><button type="button" role="menuitem" data-language-choice="kk">Қаз</button><a role="menuitem" href="https://uniqore.ai/" target="_blank" hreflang="en" rel="alternate noopener" aria-label="Eng — uniqore.ai">Eng <span class="language-external-arrow" aria-hidden="true">↗</span></a></div>
+    </details>
     <a class="nav-mail" href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
     <a class="btn btn-primary btn-sm" href="/download/">Скачать</a>
   </div>
@@ -81,7 +102,7 @@
     </div>
     <div class="qualities">
       <div class="card quality rv"><span class="n"></span><h3>Умение принимать решения.</h3></div>
-      <div class="card quality rv"><span class="n"></span><h3>Умение принимать решения быстро.</h3></div>
+      <div class="card quality rv"><span class="n"></span><h3>Умение принимать решения <em>быстро</em>.</h3></div>
       <div class="card quality rv"><span class="n"></span><h3>Способность видеть возможности для своего бизнеса везде.</h3></div>
     </div>
   </div>
@@ -180,5 +201,6 @@ document.getElementById('copyBtn').addEventListener('click', function(){
   }).catch(function(){ btn.textContent = 'hi@uniqore.ai'; });
 });
 </script>
+<script src="/assets/i18n.js?v=11"></script>
 </body>
 </html>
