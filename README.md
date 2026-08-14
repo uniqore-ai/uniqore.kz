@@ -1,8 +1,8 @@
 # uniqore.kz
 
-Русскоязычный лендинг UNIQORE — **ИИ-Партнёр для предпринимателя. ИИ, который
+Русско- и казахоязычный лендинг Uniqore — **ИИ-Партнёр для предпринимателя. ИИ, который
 внедряет в ваш бизнес сам себя.** Собран из канона продукта
-(`uniqore-docs/vision/`, актуальная версия v1.1.0); структура и решения —
+(`uniqore-docs/vision/`, актуальная версия v1.3.0); структура и решения —
 спека `uniqore-docs/desktop-cto/specs/landing-vision-refresh.md`.
 
 🔗 **Прод:** https://uniqore.kz
@@ -19,12 +19,15 @@
 | `download/index.html` | `/download/` | Скачать: платформы, первый запуск на macOS, mailto-фолбэк |
 
 Общий хром (токены, нав, футер, кнопки, секции) — `assets/site.css`; страничные
-стили и скрипты — инлайн в своей странице. Маскот Юни — инлайн-SVG, логотип в
-нав/футере — `/favicon.svg`. Шрифт **Inter** — Google Fonts по CDN.
+стили и скрипты — инлайн в своей странице. Маскот Юни — инлайн-SVG, в навигации
+используется графический wordmark бренд-пака v1.2.0 (`assets/wordmark-dark-v1.2.0.svg`).
+Шрифт **Inter** — Google Fonts по CDN.
 
-**Языки.** Новые страницы — только RU. Казахская локаль (`assets/i18n.js` +
-`assets/language.css`) осталась только в архивной `/archive/crm/`; перевод новых
-страниц — отдельная задача. `Eng` в меню ведёт на **https://uniqore.ai/**.
+**Языки.** Все четыре живые страницы работают на RU и ҚАЗ без дублирования HTML:
+казахский включается через `?lang=kk`, выбор сохраняется между маршрутами и в
+`localStorage`. Переводы, метаданные и динамические сообщения находятся в
+`assets/i18n.js`, dropdown — в `assets/language.css`. `Eng` в меню открывает
+**https://uniqore.ai/** в новой вкладке.
 Хостинг — **GitHub Pages** (деплой из ветки `main`, корень `/`).
 
 **Скачивание.** Кнопки на `/download/` пока «Скоро»; включение — готовые href в
@@ -37,11 +40,12 @@ HTML-комментариях рядом с кнопками (`https://api.uniqo
 |------|------------|
 | `index.html`, `mission/`, `speech-analytics/`, `download/` | Живые страницы (см. выше) |
 | `assets/site.css` | Общий хром сайта |
-| `assets/i18n.js`, `assets/language.css` | RU→ҚАЗ локализация — используется только `/archive/crm/` |
+| `assets/wordmark-dark-v1.2.0.svg` | Актуальный графический wordmark `UNIQORE` из бренд-пака v1.2.0 |
+| `assets/i18n.js`, `assets/language.css` | RU→ҚАЗ локализация четырёх живых страниц и архивной `/archive/crm/` |
 | `archive/crm/` | Бывшая `/crm/` («Увидьте, где бизнес теряет деньги») — retiring-продукт, `noindex` |
 | `archive/tenders/` | Архив тендерного продукта (было `/tenders/`), `noindex` |
 | `crm/`, `tenders/`, `tenders/demo/`, `tenders/fullpage/` | Заглушки-редиректы (meta refresh) на `/archive/…`, `noindex` |
-| `docs/localization.md` | Решения по локализации (сейчас применимы только к `/archive/crm/`) |
+| `docs/localization.md` | Решения и сценарии проверки RU / ҚАЗ локализации |
 | `404.html` | Страница «не найдено» |
 | `CNAME` | Кастомный домен `uniqore.kz` для GitHub Pages |
 | `favicon.*`, `apple-touch-icon.png`, `android-chrome-*`, `mstile-150x150.png`, `site.webmanifest`, `browserconfig.xml` | Favicon-набор бренд-пака v1.0.1 |
