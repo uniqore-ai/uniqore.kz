@@ -68,8 +68,8 @@
 .feat-txt li b{color:var(--ink)}
 .feat-chat{overflow:hidden;border-radius:var(--r);display:flex}
 .feat-chat .mock-chat{flex:1;border:1px solid var(--line);border-radius:var(--r)}
-/* первое знакомство с Юни — как короткое сообщение в чате */
-.yuni-hello{max-width:760px;margin:-8px auto 36px;padding:0;display:flex;align-items:flex-start;gap:12px;
+/* отдельное представление Юни + короткая реплика самого персонажа */
+.yuni-hello{max-width:760px;margin:0 auto;padding:0;display:flex;align-items:flex-start;gap:12px;text-align:left;
   position:relative;overflow:visible;color:var(--ink);background:none;border:0;box-shadow:none}
 .yuni-hello-art{width:70px;height:62px;flex:0 0 70px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
 .yuni-hello-art svg{width:80px;height:70px;position:relative;z-index:1;filter:drop-shadow(0 8px 13px rgba(122,108,255,.3));animation:float 5s ease-in-out infinite}
@@ -77,29 +77,30 @@
   background:linear-gradient(145deg,#fff,#fbfbfe);box-shadow:0 8px 24px rgba(47,42,84,.07)}
 .yuni-hello-copy::before{content:'';position:absolute;left:-7px;top:16px;width:12px;height:12px;background:#fff;
   border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.yuni-conversation{flex:1;min-width:0;max-width:680px}
+.yuni-conversation .yuni-hello-copy{max-width:none}
 .yuni-hello h3{font-size:15.5px;line-height:1.4;letter-spacing:-.005em}
 .yuni-hello p{font-size:13px;line-height:1.5;color:var(--ink-2);margin-top:5px}
-/* боли: асимметричная диагностика вместо одинаковых карточек */
-.pain-stage{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;max-width:960px;margin:0 auto}
-.pain-card{position:relative;overflow:hidden}
-.pain-tag{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:10px}
-.pain-lead{grid-row:span 2;min-height:336px;padding:30px;display:flex;flex-direction:column;justify-content:flex-end;
-  background:radial-gradient(420px 260px at 100% 0,rgba(109,94,248,.58),transparent 62%),
-    radial-gradient(320px 240px at 0 110%,rgba(17,201,192,.26),transparent 62%),var(--orb-bg);color:#fff}
-.pain-lead::after{content:'?';position:absolute;right:-20px;top:-56px;font-size:230px;font-weight:800;line-height:1;color:rgba(255,255,255,.055)}
-.pain-lead .pain-tag{color:#aaa2ff}
-.pain-lead .pain-q{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.24);color:#fff;vertical-align:1px}
-.pain-lead .pain-q .qq{left:50%;bottom:135%;top:auto;transform:translateX(-50%);width:270px;text-transform:none;letter-spacing:0}
-.pain-no{position:absolute;top:24px;left:28px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#8d94b7}
-.pain-lead h3{max-width:430px;font-size:clamp(25px,3vw,36px);line-height:1.1;letter-spacing:-.025em;position:relative;z-index:1}
-.pain-lead p{max-width:440px;margin-top:15px;color:#bdc1d8;font-size:14px;line-height:1.55;position:relative;z-index:1}
-.pain-side{min-height:159px;padding:24px;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
-.pain-mark{width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:var(--grad-soft);
-  color:var(--violet);font-size:12px;font-weight:800;letter-spacing:.06em;border:1px solid rgba(109,94,248,.18)}
-.pain-side h3{font-size:18px;font-weight:800;letter-spacing:-.015em;margin-bottom:7px}
-.pain-side p{font-size:13.5px;color:var(--ink-2);line-height:1.5}
-.pain-ai{background:linear-gradient(135deg,#fff 0%,#f5f1ff 100%);border-color:rgba(109,94,248,.28)}
-.pain-ai .pain-mark{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(109,94,248,.28)}
+.yuni-question-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.yuni-question{appearance:none;border:1px solid rgba(109,94,248,.25);background:rgba(255,255,255,.86);color:var(--ink-2);border-radius:999px;padding:8px 11px;font:700 10.5px/1.25 var(--font);cursor:pointer;transition:.16s;text-align:left}
+.yuni-question:hover,.yuni-question[aria-pressed="true"]{color:var(--violet);border-color:rgba(109,94,248,.55);background:#fff;box-shadow:0 6px 18px rgba(109,94,248,.12)}
+.yuni-question:focus-visible{outline:3px solid rgba(109,94,248,.25);outline-offset:2px}
+.yuni-answer{display:none;margin-top:10px;padding:12px 14px;border-radius:13px;background:linear-gradient(145deg,rgba(109,94,248,.09),rgba(17,201,192,.06));border:1px solid rgba(109,94,248,.18);color:var(--ink-2);font-size:12.5px;line-height:1.5}
+.yuni-answer.is-visible{display:block;animation:pop .28s ease}
+.yuni-answer strong{color:var(--ink)}
+.yuni-answer .btn{display:inline-flex;margin-top:10px;color:#fff;font-size:11.5px;padding:9px 12px}
+/* боли: три тёплые иллюстрированные истории с Юни */
+.pain-stage{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1080px;margin:0 auto}
+.pain-card{position:relative;overflow:hidden;display:flex;flex-direction:column;background:#fffdf9;border-color:rgba(117,91,87,.14)}
+.pain-art{display:block;width:100%;height:auto;border-bottom:1px solid rgba(117,91,87,.1);background:#fff5e9}
+.pain-body{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.pain-meta{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.pain-no{font-size:10px;font-weight:800;letter-spacing:.12em;color:#9b7ff1;background:#f1edff;border-radius:999px;padding:5px 7px}
+.pain-tag{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--violet)}
+.pain-q{vertical-align:1px}
+.pain-q .qq{left:50%;bottom:135%;top:auto;transform:translateX(-50%);width:270px;text-transform:none;letter-spacing:0}
+.pain-card h3{font-size:19px;font-weight:800;letter-spacing:-.018em;line-height:1.25;margin-bottom:9px}
+.pain-card p{font-size:13.5px;color:var(--ink-2);line-height:1.52}
 /* полный каталог автоматизаций */
 .auto-catalog{margin:0 0 18px;padding:28px}
 .auto-catalog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px}
@@ -124,6 +125,7 @@
 .auto-card h4{font-size:15px;font-weight:800;letter-spacing:-.01em;line-height:1.3;margin-bottom:8px}
 .auto-card p{font-size:12.5px;color:var(--ink-2);line-height:1.48}
 .auto-card a{font-size:12px;font-weight:800;display:inline-block;margin-top:auto;padding-top:12px}
+.auto-card .auto-card-cta{width:100%;margin-top:auto;padding:11px 14px;color:#fff;font-size:12.5px;display:inline-flex;align-items:center;justify-content:center}
 .auto-card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:13px}
 .auto-card-tag{font-size:8.5px;font-weight:800;letter-spacing:.055em;text-transform:uppercase;color:var(--ink-3);
   background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 7px}
@@ -160,6 +162,9 @@
 .tier li::before{content:'';position:absolute;left:0;top:10px;width:10px;height:10px;border-radius:4px;background:var(--grad);opacity:.85}
 .tier.free{border-color:rgba(109,94,248,.4);background:var(--grad-soft)}
 .tier .btn{margin-top:12px}
+.tier-download-cta{width:100%;flex-direction:column;gap:2px;padding:11px 12px;line-height:1.15}
+.tier-download-cta strong{font-size:13px}
+.tier-download-cta span{font-size:9.5px;font-weight:700;opacity:.88}
 .tiers-note{text-align:center;max-width:640px;margin:20px auto 0;font-size:13.5px;color:var(--ink-2);font-weight:600;line-height:1.5}
 @media (max-width:900px){
   .feat{grid-template-columns:1fr}
@@ -169,17 +174,16 @@
 @media (max-width:700px){
   .yuni-hello{max-width:100%}
   .pain-stage{grid-template-columns:1fr}
-  .pain-lead{grid-row:auto;min-height:300px}
   .auto-catalog-head{align-items:flex-start;flex-direction:column}
   .auto-legend{justify-content:flex-start}
 }
 @media (max-width:560px){
-  .yuni-hello{gap:10px;margin:-6px auto 30px}
+  .yuni-hello{gap:10px}
   .yuni-hello-art{width:58px;height:54px;flex-basis:58px}
   .yuni-hello-art svg{width:66px;height:58px}
   .yuni-hello-copy{padding:13px 14px}.yuni-hello h3{font-size:14.5px}.yuni-hello p{font-size:12.5px}
-  .pain-side{grid-template-columns:42px 1fr;padding:20px}.pain-mark{width:42px;height:42px}
-  .pain-lead .pain-q .qq{bottom:auto;top:135%}
+  .pain-body{padding:18px 19px 21px}
+  .pain-q .qq{bottom:auto;top:135%}
   .auto-catalog{padding:18px}
   .auto-grid{grid-template-columns:1fr}
   .auto-card{min-height:0}
@@ -195,7 +199,8 @@
   <div class="nav-in">
     <a class="nav-home" href="/" aria-label="UNIQORE — на главную"><img class="brand-icon" src="/favicon.svg?v=1.0.1" alt=""/><img class="brand-wordmark" src="/assets/wordmark-dark-v1.2.0.svg" alt="UNIQORE"/></a>
     <a class="nav-link" href="/mission/">Миссия</a>
-    <a class="nav-link" href="/speech-analytics/">Речевая аналитика</a>
+    <a class="nav-link" href="/automations/">Автоматизации</a>
+    <a class="nav-link" href="/speech-analytics/">Речевая аналитика продаж</a>
     <span class="sp"></span>
     <details class="language-menu">
       <summary aria-label="Выбрать язык" aria-haspopup="menu">
@@ -367,24 +372,30 @@
       <p>Если хоть одна мысль ниже звучала у вас в голове — вы точно не один.</p>
     </div>
     <div class="pain-stage">
-      <div class="card pain-card pain-lead rv">
-        <div class="pain-no">01</div>
-        <div class="pain-tag">То самое FOMO <span class="q pain-q" tabindex="0" aria-label="Что такое FOMO?">?<span class="qq">FOMO — Fear of Missing Out, «страх упустить»: ощущение, что все вокруг уже пользуются ИИ, а вы отстаёте.</span></span></div>
-        <h3>«Кажется, ИИ уже работает у всех. Кроме меня»</h3>
-        <p>Конкуренты говорят про агентов и автоматизацию, а у вас всё ещё нет понятного первого шага, который даст результат бизнесу.</p>
-      </div>
-      <div class="card pain-card pain-side rv">
-        <div class="pain-mark">02</div>
-        <div><div class="pain-tag">Порог входа</div>
+      <article class="card pain-card rv">
+        <img class="pain-art" src="/assets/illustrations/pain-fomo-yuni-v2.webp" width="1086" height="600" loading="lazy" decoding="async" alt="Юни видит, как готовые результаты проезжают мимо"/>
+        <div class="pain-body">
+          <div class="pain-meta"><span class="pain-no">01</span><div class="pain-tag">То самое FOMO <span class="q pain-q" tabindex="0" aria-label="Что такое FOMO?">?<span class="qq">FOMO — Fear of Missing Out, «страх упустить»: ощущение, что все вокруг уже пользуются ИИ, а вы отстаёте.</span></span></div></div>
+          <h3>«Кажется, ИИ уже работает у всех. Кроме меня»</h3>
+          <p>Конкуренты говорят про агентов и автоматизацию, а у вас всё ещё нет понятного первого шага, который даст результат бизнесу.</p>
+        </div>
+      </article>
+      <article class="card pain-card rv">
+        <img class="pain-art" src="/assets/illustrations/pain-entry-yuni-v3.webp" width="1086" height="600" loading="lazy" decoding="async" alt="Раздражённый Юни перед запутанным клубком ИИ-инструментов"/>
+        <div class="pain-body">
+          <div class="pain-meta"><span class="pain-no">02</span><div class="pain-tag">Порог входа</div></div>
           <h3>Страшно и непонятно, с чего начать</h3>
-          <p>Инструментов сотни, каждый обещает магию, а разбираться во всём самому просто некогда.</p></div>
-      </div>
-      <div class="card pain-card pain-side pain-ai rv">
-        <div class="pain-mark">03</div>
-        <div><div class="pain-tag">Ноль контекста</div>
+          <p>Инструментов сотни, каждый обещает магию, а разбираться во всём самому просто некогда.</p>
+        </div>
+      </article>
+      <article class="card pain-card rv">
+        <img class="pain-art" src="/assets/illustrations/pain-context-yuni-v3.webp" width="1086" height="600" loading="lazy" decoding="async" alt="Возмущённый Юни получает пустой совет от ИИ без данных бизнеса"/>
+        <div class="pain-body">
+          <div class="pain-meta"><span class="pain-no">03</span><div class="pain-tag">Ноль контекста</div></div>
           <h3>Обычный ИИ слишком тупой</h3>
-          <p>Он ничего не знает про ваши сделки, команду и цифры — поэтому выдаёт советы, которые подходят всем и никому.</p></div>
-      </div>
+          <p>Он ничего не знает про ваши сделки, команду и цифры — поэтому выдаёт советы, которые подходят всем и никому.</p>
+        </div>
+      </article>
     </div>
     <div class="cat-note rv">Uniqore снимает FOMO, убирает порог входа и даёт результат уже в первые дни —
       а не после «внедрения за полгода». <a href="/mission/">Почему мы этим занимаемся →</a></div>
@@ -395,21 +406,9 @@
 <section>
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>Юни помогает найти где вы теряете и недозарабатываете.</h2>
+      <h2>Юникор помогает найти где вы теряете и недозарабатываете.</h2>
       <p>Покажет причину на ваших данных, предложит готовый способ исправить её и поможет довести решение до результата.</p>
     </div>
-    <div class="card yuni-hello rv">
-      <div class="yuni-hello-art">
-        <svg viewBox="300 200 800 720" role="img" aria-label="Юни — ИИ-Партнёр для предпринимателя">
-          <use href="#yuni"></use>
-        </svg>
-      </div>
-      <div class="yuni-hello-copy">
-        <h3>Привет, я Юни. Сначала узнаю ваш бизнес, потом покажу, где он теряет деньги и возможности.</h3>
-        <p>Для начала хватит CRM, разговоров, цифр или файлов — подключать всё сразу не нужно.</p>
-      </div>
-    </div>
-
     <div class="feat rv">
       <div class="card feat-txt">
         <div class="kick">01 · уже работает</div>
@@ -447,7 +446,7 @@
           <h3>Готовые автоматизации</h3>
           <p>Раздел, где готовую автоматизацию для бизнеса получаешь в несколько кликов. Новые автоматизации выходят постоянно — в той же подписке. Никаких промптов и долгого внедрения.</p>
         </div>
-        <div class="auto-legend"><span class="auto-status live">уже есть</span><span class="auto-status soon">скоро</span></div>
+        <div class="auto-legend"><span class="auto-status live">уже есть</span><span class="auto-status soon">скоро</span><a class="btn btn-ghost btn-sm" href="/automations/">Все автоматизации →</a></div>
       </div>
       <div class="auto-filters" role="group" aria-label="Подсветить автоматизации по направлению">
         <button class="auto-filter" type="button" data-filter="all" aria-pressed="true">Все</button>
@@ -457,77 +456,7 @@
         <button class="auto-filter" type="button" data-filter="team" aria-pressed="false">Команда</button>
         <button class="auto-filter" type="button" data-filter="operations" aria-pressed="false">Операции</button>
       </div>
-      <div class="auto-grid" aria-live="polite">
-        <article class="auto-card" data-categories="sales team">
-          <div class="auto-card-top"><div class="auto-card-icon">🎙️</div><span class="auto-status live">уже есть</span></div>
-          <h4>Речевая аналитика</h4><p>Показывает, где менеджеры теряют сделки, и даёт личный план каждому.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span><span class="auto-card-tag">Команда</span></div><a href="/speech-analytics/">Посмотреть →</a>
-        </article>
-        <article class="auto-card" data-categories="finance operations">
-          <div class="auto-card-top"><div class="auto-card-icon">🏦</div><span class="auto-status soon">скоро</span></div>
-          <h4>ДДС из банковских выписок</h4><p>Разносит операции по статьям и собирает движение денег без ручной таблицы.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span><span class="auto-card-tag">Операции</span></div>
-        </article>
-        <article class="auto-card" data-categories="marketing">
-          <div class="auto-card-top"><div class="auto-card-icon">🕵️</div><span class="auto-status soon">скоро</span></div>
-          <h4>Слежка за конкурентами</h4><p>Собирает изменения цен, товаров и акций конкурентов, чтобы вам не ходить по их сайтам.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Маркетинг</span></div>
-        </article>
-        <article class="auto-card" data-categories="sales">
-          <div class="auto-card-top"><div class="auto-card-icon">📊</div><span class="auto-status live">уже есть</span></div>
-          <h4>Анализ воронки продаж</h4><p>Находит этапы, где застревают и умирают сделки, и считает цену этих потерь.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span></div>
-        </article>
-        <article class="auto-card" data-categories="operations team sales">
-          <div class="auto-card-top"><div class="auto-card-icon">🌅</div><span class="auto-status soon">скоро</span></div>
-          <h4>Ежедневный пульс</h4><p>Каждое утро присылает новые лиды, застрявшие сделки и вчерашние победы одним сообщением.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Операции</span><span class="auto-card-tag">Команда</span></div>
-        </article>
-        <article class="auto-card" data-categories="sales marketing">
-          <div class="auto-card-top"><div class="auto-card-icon">🧮</div><span class="auto-status soon">скоро</span></div>
-          <h4>ABCD-анализ клиентской базы</h4><p>Показывает, кто приносит выручку, кто растёт, кто уснул и кого вы теряете.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span><span class="auto-card-tag">Маркетинг</span></div>
-        </article>
-        <article class="auto-card" data-categories="team sales">
-          <div class="auto-card-top"><div class="auto-card-icon">🏃</div><span class="auto-status soon">скоро</span></div>
-          <h4>Аналитика активности менеджеров по продажам</h4><p>Показывает, кто действительно работал со сделками на этой неделе — по данным CRM.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Команда</span><span class="auto-card-tag">Продажи</span></div>
-        </article>
-        <article class="auto-card" data-categories="team sales">
-          <div class="auto-card-top"><div class="auto-card-icon">🧑‍💼</div><span class="auto-status soon">скоро</span></div>
-          <h4>Личный разбор менеджеру</h4><p>Каждому — только его звонки, ошибки, сильные стороны и следующий шаг.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Команда</span><span class="auto-card-tag">Продажи</span></div>
-        </article>
-        <article class="auto-card" data-categories="sales marketing">
-          <div class="auto-card-top"><div class="auto-card-icon">📄</div><span class="auto-status soon">скоро</span></div>
-          <h4>Персональные КП</h4><p>Готовит коммерческие предложения под тип клиента — на ваших данных и вашем бланке.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Продажи</span><span class="auto-card-tag">Маркетинг</span></div>
-        </article>
-        <article class="auto-card" data-categories="finance">
-          <div class="auto-card-top"><div class="auto-card-icon">✂️</div><span class="auto-status soon">скоро</span></div>
-          <h4>Косторезка</h4><p>Находит лишние расходы и показывает, сколько можно вернуть в месяц.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span></div>
-        </article>
-        <article class="auto-card" data-categories="finance">
-          <div class="auto-card-top"><div class="auto-card-icon">📈</div><span class="auto-status soon">скоро</span></div>
-          <h4>ОПиУ</h4><p>Собирает понятный отчёт о прибыли и убытках из ваших файлов.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span></div>
-        </article>
-        <article class="auto-card" data-categories="finance operations">
-          <div class="auto-card-top"><div class="auto-card-icon">💸</div><span class="auto-status soon">скоро</span></div>
-          <h4>Рентген денежного потока</h4><p>Показывает, куда реально уходят деньги и где можно сэкономить — по банковским выпискам.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span><span class="auto-card-tag">Операции</span></div>
-        </article>
-        <article class="auto-card" data-categories="finance sales">
-          <div class="auto-card-top"><div class="auto-card-icon">⏳</div><span class="auto-status soon">скоро</span></div>
-          <h4>Радар должников</h4><p>Показывает, кто вам должен, сколько и как давно — до того, как долг станет списанием.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Финансы</span><span class="auto-card-tag">Продажи</span></div>
-        </article>
-        <article class="auto-card" data-categories="marketing sales">
-          <div class="auto-card-top"><div class="auto-card-icon">🎯</div><span class="auto-status soon">скоро</span></div>
-          <h4>RFM-анализ клиентской базы</h4><p>Показывает, кому продавать снова, кого пора вернуть и на кого не тратить бюджет.</p>
-          <div class="auto-card-tags"><span class="auto-card-tag">Маркетинг</span><span class="auto-card-tag">Продажи</span></div>
-        </article>
+      <div class="auto-grid" id="homeAutomationCatalog" aria-live="polite">
       </div>
     </div>
 
@@ -539,6 +468,36 @@
           автоматизации под то, что вы и так делаете руками каждый день.
           Это и есть «ИИ, который внедряет сам себя» в полной форме.</p>
       </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ЗНАКОМСТВО С ЮНИ -->
+<section id="meet-yuni">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Не бойтесь, что будет сложно. Встречайте Юни.</h2>
+      <p>Юни живёт внутри Юникора. Он дружелюбно и терпеливо объяснит каждый шаг — с ним всегда можно посоветоваться, переспросить и попросить объяснить всё, что осталось непонятным.</p>
+    </div>
+    <div class="card yuni-hello rv">
+        <div class="yuni-hello-art">
+          <svg viewBox="300 200 800 720" role="img" aria-label="Юни — дружелюбный проводник внутри Юникора">
+            <use href="#yuni"></use>
+          </svg>
+        </div>
+        <div class="yuni-conversation">
+          <div class="yuni-hello-copy">
+            <h3>Привет, я Юни. Сначала узнаю ваш бизнес, потом покажу, где он теряет деньги и возможности.</h3>
+            <p>Для начала хватит CRM, разговоров, цифр или файлов — подключать всё сразу не нужно.</p>
+          </div>
+          <div class="yuni-question-list" role="group" aria-label="Задайте Юни вопрос">
+            <button class="yuni-question" type="button" data-yuni-topic="sales" aria-pressed="false">Мой отдел продаж сливает лиды?</button>
+            <button class="yuni-question" type="button" data-yuni-topic="profit" aria-pressed="false">Как поднять чистую прибыль?</button>
+            <button class="yuni-question" type="button" data-yuni-topic="ai" aria-pressed="false">С чего начать внедрение ИИ?</button>
+          </div>
+          <div class="yuni-answer" id="yuniAnswer" aria-live="polite"></div>
+        </div>
     </div>
   </div>
 </section>
@@ -577,7 +536,7 @@
           <li>ИИ-Партнёр — познакомиться и получить первые ответы</li>
           <li>Первый разбор речевой аналитики — бесплатно</li>
         </ul>
-        <a class="btn btn-primary btn-sm" href="/download/">Скачать</a>
+        <a class="btn btn-primary btn-sm tier-download-cta" href="/download/"><strong>Скачать</strong><span>и проанализировать мой отдел продаж бесплатно</span></a>
       </div>
       <div class="card tier">
         <div class="nm">Сердитый минимум</div>
@@ -619,11 +578,11 @@
       <details open>
         <summary>Чем Uniqore отличается от ChatGPT и Claude Code?</summary>
         <div class="faq-answer">
-          <p><strong>Юни знает всё про ваш бизнес, что вы ему подключили и рассказали, — поэтому даёт не общие советы, а конкретный ответ по вашим данным.</strong></p>
-          <p>ChatGPT и Claude Code остаются сильными инструментами. Юни понимает, когда они нужны, подготовит задачу и поможет довести её до результата.</p>
+          <p><strong>Uniqore знает всё про ваш бизнес, что вы подключили и рассказали, — поэтому даёт не общие советы, а конкретный ответ по вашим данным.</strong></p>
+          <p>ChatGPT и Claude Code остаются сильными инструментами. Внутри Uniqore Юни объяснит, когда они нужны, подготовит задачу и поможет довести её до результата.</p>
           <div class="answer-example">
             <div class="answer-card"><span class="label">Обычный ИИ</span>«Обучите менеджеров выявлять потребность и всегда фиксировать следующий шаг».</div>
-            <div class="answer-card uni"><span class="label">Юни после разбора ваших звонков</span>«У Менеджера #2 следующий шаг согласован только в 2 из 8 сделок. В отказах клиенты уходят без даты следующего контакта. Вот три сделки с цитатами и личный план на неделю».</div>
+            <div class="answer-card uni"><span class="label">Uniqore после разбора ваших звонков</span>«У Менеджера #2 следующий шаг согласован только в 2 из 8 сделок. В отказах клиенты уходят без даты следующего контакта. Вот три сделки с цитатами и личный план на неделю».</div>
           </div>
         </div>
       </details>
@@ -807,7 +766,8 @@
     <div class="foot-brand"><img src="/favicon.svg?v=1.0.1" alt=""/>Uniqore — ИИ-Партнёр для предпринимателя</div>
     <div class="foot-links">
       <a href="/mission/">Миссия</a>
-      <a href="/speech-analytics/">Речевая аналитика</a>
+      <a href="/automations/">Автоматизации</a>
+      <a href="/speech-analytics/">Речевая аналитика продаж</a>
       <a href="/download/">Скачать</a>
       <a href="https://uniqore.ai/" hreflang="en" rel="alternate">Eng ↗</a>
       <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
@@ -816,7 +776,9 @@
   </div>
 </footer>
 
+<script src="/assets/automations.js?v=1"></script>
 <script>
+UniqoreAutomations.renderCatalog(document.getElementById('homeAutomationCatalog'));
 /* reveal on scroll */
 var io = new IntersectionObserver(function(es){
   es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
@@ -866,6 +828,35 @@ document.getElementById('chipPrompt').addEventListener('click', function(){
   push('agent', '<strong>Сначала важное: вам нужен не просто менеджер по продажам, а менеджер-диагност.</strong> Основная потеря происходит после демо, поэтому кандидат должен уметь выяснять цену бездействия клиента, а не только выполнять план по звонкам.<span class="msg-insight"><b>Ядро промпта:</b> «Опиши роль через результат первых 90 дней. Добавь анти-портрет кандидата и тест-кейс: разобрать реальный звонок, найти упущенную боль и предложить следующий вопрос клиенту».</span>Так вакансия отсеет людей с красивым резюме, но слабой диагностикой ещё до интервью.', 400, true);
 });
 
+/* знакомство с Юни: короткий ответ и маршрут к готовому решению */
+var yuniAnswer = document.getElementById('yuniAnswer');
+var yuniQuestions = document.querySelectorAll('.yuni-question');
+var yuniReplies = {
+  sales:{
+    text:'Сначала проверим не количество звонков, а места, где лиды теряются: первый ответ, выявление боли, работа с ценой и следующий шаг. Речевая аналитика продаж покажет это на всех переписках и разговорах — с примерами и личным планом для каждого менеджера.',
+    label:'Проверить отдел продаж →',
+    href:'/speech-analytics/'
+  },
+  profit:{
+    text:'Начнём с цифр: соберём Отчет о прибылях и убытках, увидим, какие направления действительно зарабатывают, а затем проверим расходы без опасных сокращений вслепую.',
+    label:'Посмотреть финансовые автоматизации →',
+    href:'/automations/profit-and-loss/'
+  },
+  ai:{
+    text:'Не нужно внедрять «весь ИИ». Выберите один дорогой вопрос бизнеса — продажи, деньги или маркетинг — и запустите готовую автоматизацию. Я объясню, какие данные нужны, и проведу по шагам.',
+    label:'Выбрать первую автоматизацию →',
+    href:'/automations/'
+  }
+};
+yuniQuestions.forEach(function(button){
+  button.addEventListener('click',function(){
+    var reply = yuniReplies[button.dataset.yuniTopic];
+    yuniQuestions.forEach(function(item){ item.setAttribute('aria-pressed',item === button ? 'true' : 'false'); });
+    yuniAnswer.innerHTML = reply.text + '<br><a class="btn btn-primary btn-sm" href="' + reply.href + '">' + reply.label + '</a>';
+    yuniAnswer.classList.add('is-visible');
+  });
+});
+
 /* copy email */
 document.getElementById('copyBtn').addEventListener('click', function(){
   var btn = this;
@@ -875,6 +866,6 @@ document.getElementById('copyBtn').addEventListener('click', function(){
   }).catch(function(){ btn.textContent = 'hi@uniqore.ai'; });
 });
 </script>
-<script src="/assets/i18n.js?v=11"></script>
+<script src="/assets/i18n.js?v=13"></script>
 </body>
 </html>

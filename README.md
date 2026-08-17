@@ -15,7 +15,9 @@
 |---|---|---|
 | `index.html` | `/` | Главная: боли → три фичи → позиционирование → десктоп → принципы → цены → CTA |
 | `mission/index.html` | `/mission/` | Миссия: «Мы обожаем фаундеров», качества, боли, навигатор |
-| `speech-analytics/index.html` | `/speech-analytics/` | Флагманская автоматизация «Речевая аналитика воронки продаж» |
+| `automations/index.html` | `/automations/` | Общий каталог готовых автоматизаций с фильтрами |
+| `automations/*/index.html` | `/automations/<slug>/` | Отдельные страницы автоматизаций из общего каталога |
+| `speech-analytics/index.html` | `/speech-analytics/` | Флагманская автоматизация «Речевая аналитика продаж» |
 | `download/index.html` | `/download/` | Скачать: платформы, первый запуск на macOS, mailto-фолбэк |
 
 Общий хром (токены, нав, футер, кнопки, секции) — `assets/site.css`; страничные
@@ -23,7 +25,7 @@
 используется графический wordmark бренд-пака v1.2.0 (`assets/wordmark-dark-v1.2.0.svg`).
 Шрифт **Inter** — Google Fonts по CDN.
 
-**Языки.** Все четыре живые страницы работают на RU и ҚАЗ без дублирования HTML:
+**Языки.** Все живые страницы работают на RU и ҚАЗ без дублирования HTML:
 казахский включается через `?lang=kk`, выбор сохраняется между маршрутами и в
 `localStorage`. Переводы, метаданные и динамические сообщения находятся в
 `assets/i18n.js`, dropdown — в `assets/language.css`. `Eng` в меню открывает
@@ -38,10 +40,12 @@ HTML-комментариях рядом с кнопками (`https://api.uniqo
 
 | Файл | Назначение |
 |------|------------|
-| `index.html`, `mission/`, `speech-analytics/`, `download/` | Живые страницы (см. выше) |
+| `index.html`, `mission/`, `automations/`, `speech-analytics/`, `download/` | Живые страницы (см. выше) |
 | `assets/site.css` | Общий хром сайта |
+| `assets/automations.js`, `assets/automations.css` | Единый каталог, карточки и страницы автоматизаций |
+| `assets/illustrations/` | Оптимизированные иллюстрации для смысловых блоков главной |
 | `assets/wordmark-dark-v1.2.0.svg` | Актуальный графический wordmark `UNIQORE` из бренд-пака v1.2.0 |
-| `assets/i18n.js`, `assets/language.css` | RU→ҚАЗ локализация четырёх живых страниц и архивной `/archive/crm/` |
+| `assets/i18n.js`, `assets/language.css` | RU→ҚАЗ локализация живых страниц и архивной `/archive/crm/` |
 | `archive/crm/` | Бывшая `/crm/` («Увидьте, где бизнес теряет деньги») — retiring-продукт, `noindex` |
 | `archive/tenders/` | Архив тендерного продукта (было `/tenders/`), `noindex` |
 | `crm/`, `tenders/`, `tenders/demo/`, `tenders/fullpage/` | Заглушки-редиректы (meta refresh) на `/archive/…`, `noindex` |
@@ -51,7 +55,7 @@ HTML-комментариях рядом с кнопками (`https://api.uniqo
 | `favicon.*`, `apple-touch-icon.png`, `android-chrome-*`, `mstile-150x150.png`, `site.webmanifest`, `browserconfig.xml` | Favicon-набор бренд-пака v1.0.1 |
 | `og-home-1200x630-ru-v1.0.1.png` | RU OG-баннер — временно стоит на всех страницах (свои OG — follow-up) |
 | `og-crm-1200x630-ru-v1.0.1.png`, `og-image.png` | OG архивных страниц |
-| `robots.txt` / `sitemap.xml` | SEO: sitemap — 4 живые страницы; `Disallow: /archive/`, `/tenders/`. `/crm/` не задизаллоулен намеренно — Google должен просканировать заглушку с `noindex` и выкинуть URL из индекса |
+| `robots.txt` / `sitemap.xml` | SEO: sitemap включает основные страницы и каталог автоматизаций; `Disallow: /archive/`, `/tenders/`. `/crm/` не задизаллоулен намеренно — Google должен просканировать заглушку с `noindex` и выкинуть URL из индекса |
 
 ## Разработка
 
