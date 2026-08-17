@@ -16,10 +16,10 @@
   setTimeout(function(){ document.documentElement.classList.add('i18n-ready'); },1500);
 })();
 </script>
-<title>Речевая аналитика воронки продаж — Uniqore</title>
-<meta name="description" content="Uniqore связывает слова в звонках с исходом сделки, показывает динамику команды, сильные ответы и собирает готовый отчёт на планёрку."/>
+<title>Речевая аналитика продаж — Uniqore</title>
+<meta name="description" content="Uniqore анализирует переписки и записи звонков с клиентами, показывает, где менеджеры теряют сделки, и даёт конкретный план действий по каждой сделке."/>
 <meta property="og:title" content="Сделка теряется не в CRM. Она теряется в одной фразе."/>
-<meta property="og:description" content="Динамика команды, звонок-доказательство, сильный ответ коллеги и готовый отчёт на планёрку."/>
+<meta property="og:description" content="Переписки и записи звонков, конкретные действия по сделкам, план развития каждого менеджера и готовый отчёт руководителю."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -196,10 +196,24 @@ h1{max-width:940px}
 .get-card .free{display:inline-block;background:rgba(31,191,117,.12);border:1px solid rgba(31,191,117,.35);color:#128a55;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:16px}
 .get-card p{font-size:15px;color:var(--ink-2);line-height:1.6;max-width:560px;margin:14px auto 26px}
 .get-note{margin-top:16px;font-size:13px;font-weight:600;color:var(--ink-3)}
+.lead-form{margin:28px auto 0;text-align:left;scroll-margin-top:110px}
+.lead-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lead-field{display:flex;flex-direction:column;gap:7px;font-size:12.5px;font-weight:750;color:var(--ink)}
+.lead-field em{font-style:normal;font-weight:600;color:var(--ink-3)}
+.lead-field.full{grid-column:1/-1}
+.lead-field input{width:100%;border:1px solid var(--line-strong);border-radius:12px;background:var(--surface);color:var(--ink);font:600 14px var(--font);padding:13px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+.lead-field input:focus{border-color:var(--violet);box-shadow:0 0 0 4px rgba(109,94,248,.11)}
+.lead-field input::placeholder{color:var(--ink-3);font-weight:500}
+.lead-required{color:var(--red)}
+.lead-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.lead-actions .btn{min-width:220px}
+.lead-form-note{margin:13px auto 0!important;font-size:12px!important;line-height:1.5!important;text-align:center;color:var(--ink-3)!important}
+.lead-status{min-height:18px;margin-top:8px;text-align:center;font-size:12px;font-weight:700;color:var(--green)}
+@media(max-width:620px){.lead-fields{grid-template-columns:1fr}.lead-field.full{grid-column:auto}.lead-actions{align-items:stretch;flex-direction:column}.lead-actions .btn{width:100%}}
 /* ── mock interactivity ── */
 .amk .tb-end{position:relative}
 .amk .menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;z-index:6;min-width:185px;text-align:left}
-.amk .menu-item{display:block;width:100%;text-align:left;border:none;background:none;font:600 12.5px var(--font);color:var(--ink-2);padding:8px 10px;border-radius:8px;cursor:pointer}
+.amk .menu-item{display:block;width:100%;text-align:left;border:none;background:none;font:600 12.5px var(--font);color:var(--ink-2);padding:8px 10px;border-radius:8px;cursor:pointer;text-decoration:none}
 .amk .menu-item:hover{background:var(--surface-2);color:var(--ink)}
 .amk .scope-row{font-size:12.5px;color:var(--ink-2);line-height:1.55;padding:6px 0;border-top:1px solid #e7eaf3;display:flex;gap:8px}
 .amk .scope-row:first-child{border-top:none;padding-top:0}
@@ -269,6 +283,24 @@ h1{max-width:940px}
 @media(max-width:980px){.hero{grid-template-columns:1fr;padding-top:54px}.hero-copy{text-align:center}.hero h1,.hero .sub{margin-left:auto;margin-right:auto}.hero .cta-row{justify-content:center}.hero-shot{max-width:720px;margin:0 auto}.trend-layout,.report-stage{grid-template-columns:1fr}.product-app .sbar{position:static;height:auto}}
 @media(max-width:620px){.hero{padding:42px 18px 44px;gap:30px}.hero h1{font-size:42px}.hero .sub{font-size:15.5px}.hero-shot{padding:8px;border-radius:20px;transform:none}.shot-grid{grid-template-columns:1fr}.shot-side{display:grid;grid-template-columns:1fr 1fr}.shot-alert{min-height:160px;padding:13px}.shot-kpis{grid-template-columns:repeat(3,1fr)}.shot-kpi{padding:8px}.shot-kpi b{font-size:16px}.trend-screen{padding:15px}.trend-head{flex-direction:column}.trend-score{text-align:left}.trend-side-card{padding:13px}.report-copy,.report-paper{padding:22px}.report-cols{grid-template-columns:1fr}.product-app-head{align-items:flex-start;flex-direction:column}.product-app .mock{max-height:680px}.product-nav{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.product-nav span{white-space:nowrap}}
 q{quotes:none}
+
+/* Настоящий экран приложения и продуктовые сценарии */
+[hidden]{display:none!important}
+.hero{display:block;max-width:1100px;text-align:center}
+.hero h1{max-width:940px;margin-left:auto;margin-right:auto}
+.hero .sub{max-width:860px;margin-left:auto;margin-right:auto}
+.hero .cta-row{justify-content:center}
+.scenario-grid,.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.scenario-card,.role-card{position:relative;overflow:hidden;padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#fff,#f8f8fd);box-shadow:var(--shadow);text-align:left}
+.scenario-card::after{content:'';position:absolute;width:120px;height:120px;border-radius:50%;right:-54px;bottom:-60px;background:rgba(109,94,248,.08)}
+.scenario-time{display:inline-flex;padding:6px 9px;border-radius:999px;background:rgba(109,94,248,.1);color:var(--violet);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.scenario-card h3,.role-card h3{font-size:20px;line-height:1.2;margin:16px 0 8px}
+.scenario-card p,.role-card p{font-size:14px;line-height:1.6;color:var(--ink-2)}
+.scenario-example{margin-top:16px;padding:13px 14px;border-left:3px solid var(--violet);border-radius:0 12px 12px 0;background:rgba(109,94,248,.06);color:var(--ink)!important;font-weight:650}
+.role-icon{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,rgba(109,94,248,.14),rgba(17,201,192,.12));font-size:22px}
+.role-card strong{color:var(--ink)}
+@media(max-width:860px){.scenario-grid,.role-grid{grid-template-columns:1fr}.scenario-card,.role-card{padding:22px}}
+@media(max-width:560px){.hero{padding-top:50px}.hero h1{font-size:42px}}
 </style>
 </head>
 <body>
@@ -278,7 +310,8 @@ q{quotes:none}
   <div class="nav-in">
     <a class="nav-home" href="/" aria-label="UNIQORE — на главную"><img class="brand-icon" src="/favicon.svg?v=1.0.1" alt=""/><img class="brand-wordmark" src="/assets/wordmark-dark-v1.2.0.svg" alt="UNIQORE"/></a>
     <a class="nav-link" href="/mission/">Миссия</a>
-    <a class="nav-link" href="/speech-analytics/">Речевая аналитика</a>
+    <a class="nav-link" href="/automations/">Автоматизации</a>
+    <a class="nav-link" href="/speech-analytics/">Речевая аналитика продаж</a>
     <span class="sp"></span>
     <details class="language-menu">
       <summary aria-label="Выбрать язык" aria-haspopup="menu"><span class="language-globe" aria-hidden="true">🌐</span><span class="language-current">Рус</span><span class="language-current-short">Рус</span><span class="language-chevron" aria-hidden="true"></span></summary>
@@ -424,14 +457,14 @@ q{quotes:none}
   <div class="hero-copy">
     <div class="eyebrow">Речевая аналитика для Bitrix24 и amoCRM</div>
     <h1>Сделка теряется не в CRM. Она теряется в одной фразе.</h1>
-    <p class="sub">Uniqore связывает слова в звонках с исходом сделки — и показывает, где ломается разговор, как отвечают сильнейшие и чему учить команду сейчас.</p>
+    <p class="sub">Uniqore анализирует все переписки и доступные записи звонков с клиентами, показывает, где менеджеры теряют сделки, и даёт конкретный следующий шаг по каждой.</p>
     <div class="cta-row">
       <a class="btn btn-primary btn-xl" href="/download/">Скачать</a>
-      <a class="btn btn-ghost btn-xl" href="mailto:hi@uniqore.ai?subject=Uniqore%20speech%20pilot">Разобрать 20 сделок →</a>
+      <a class="btn btn-ghost btn-xl" href="#contact-form">Разобрать 20 сделок →</a>
     </div>
     <div class="trust"><b>Первый разбор в пилоте — бесплатно.</b> Менеджерам ничего устанавливать не нужно.</div>
   </div>
-  <div class="hero-shot" aria-label="Экран Uniqore с выводами из звонков отдела продаж">
+  <div class="hero-shot" aria-label="Экран Uniqore с выводами из звонков отдела продаж" hidden aria-hidden="true">
     <div class="shot-top"><span class="shot-brand">Uniqore / ПРОДАЖИ · ДЕМО</span><span class="shot-live">● РАЗБОР ГОТОВ</span></div>
     <div class="shot-grid">
       <div class="shot-main">
@@ -480,11 +513,11 @@ q{quotes:none}
   <div class="wrap">
     <div class="sec-head rv">
       <div class="product-kicker">Внутри продукта</div>
-      <h2>Весь отдел — на одном экране. До конкретного звонка.</h2>
-      <p>Динамика, баллы, сделки-доказательства и готовый отчёт — любой вывод можно открыть до источника.</p>
+      <h2>Так выглядит готовый разбор в Uniqore.</h2>
+      <p>Это настоящий экран приложения на демо-данных — без перерисовки для лендинга. В нём видно, какие переписки и записи звонков были проанализированы и на каких сделках основан каждый вывод.</p>
     </div>
-    <div class="product-nav rv"><span class="on">Динамика отдела</span><span>Баллы менеджеров</span><span>Сделки-доказательства</span><span>Отчёт руководителю</span></div>
-    <div class="trend-screen rv">
+    <div class="product-nav rv" hidden aria-hidden="true"><span class="on">Динамика отдела</span><span>Баллы менеджеров</span><span>Сделки-доказательства</span><span>Отчёт руководителю</span></div>
+    <div class="trend-screen rv" hidden aria-hidden="true">
       <div class="trend-head">
         <div><h3>Продажи · общий балл</h3><p>Демо-данные · четыре готовых разбора · фиксированная шкала 0–100</p></div>
         <div class="trend-score"><b>74</b><span>↑ 12 с апреля</span></div>
@@ -513,7 +546,7 @@ q{quotes:none}
         </div>
       </div>
     </div>
-    <div class="case-stage rv">
+    <div class="case-stage rv" hidden aria-hidden="true">
       <div class="case-top">
         <span class="case-kicker">Две сделки · одно возражение</span>
         <span class="case-proof">Демо-данные</span>
@@ -563,7 +596,7 @@ q{quotes:none}
           <div class="atoolbar run-head">
             <span class="run-meta"><span>Текущий месяц · с 01.07.2026 по 31.07.2026</span><span>разобрано 31.07.2026 · 18:42</span><span>прочитано 40 из 40 отобранных</span></span>
             <div class="tb-end"><button class="abtn" id="expBtn">Выгрузить ▾</button>
-              <div class="menu" id="expMenu" hidden><button class="menu-item">В буфер обмена</button><button class="menu-item">Excel (.xlsx)</button><button class="menu-item">PDF (.pdf)</button></div></div>
+              <div class="menu" id="expMenu" hidden><button class="menu-item" type="button">В буфер обмена</button><a class="menu-item" href="/outputs/speech-landing/uniqore-speech-analysis-demo-report.xlsx" download>Excel (.xlsx)</a><a class="menu-item" href="/output/pdf/uniqore-speech-analysis-demo-report.pdf" download>PDF (.pdf)</a></div></div>
           </div>
           <button class="sub-toggle first"><span class="chev">›</span> Что разбирали</button>
           <div class="acard" id="sec-scope" hidden>
@@ -654,7 +687,7 @@ q{quotes:none}
       </div></div>
     </div>
     </div>
-    <div class="report-stage rv">
+    <div class="report-stage rv" hidden aria-hidden="true">
       <div class="report-copy">
         <small>Что получите</small>
         <h3>Отчёт, по которому можно провести планёрку.</h3>
@@ -669,6 +702,63 @@ q{quotes:none}
           <div class="report-block win"><small>Взять у Айгерим</small><q>«Давайте посчитаем на вашем объёме».</q></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Как использовать</h2>
+      <p>Uniqore собирает факты из переписок и записей разговоров с клиентами за нужный период — от сегодняшних сделок до всего прошлого года.</p>
+    </div>
+    <div class="scenario-grid">
+      <article class="scenario-card rv">
+        <span class="scenario-time">Каждый день</span>
+        <h3>Что сделать по каждой сделке сегодня</h3>
+        <p>По каждому менеджеру: где написать клиенту, где назначить следующий шаг, как ответить на возражение и какую сделку нельзя оставлять без движения.</p>
+        <p class="scenario-example">Например: «Арману — вернуться в сделку 1288, посчитать решение на объёме клиента и сразу предложить две даты следующего контакта».</p>
+      </article>
+      <article class="scenario-card rv">
+        <span class="scenario-time">Раз в месяц</span>
+        <h3>Личный план развития каждого менеджера</h3>
+        <p>Динамика, сильные стороны и повторяющиеся ошибки — плюс короткий план улучшений на следующий месяц, привязанный к реальным сделкам.</p>
+        <p class="scenario-example">Не «лучше работай с возражениями», а конкретный навык, удачный пример коллеги и сделки для проверки результата.</p>
+      </article>
+      <article class="scenario-card rv">
+        <span class="scenario-time">Любой период</span>
+        <h3>Ответ на большой вопрос руководителя</h3>
+        <p>Выберите неделю, квартал, год или свои даты. Uniqore проанализирует весь доступный материал и покажет вывод вместе со сделками-доказательствами.</p>
+        <p class="scenario-example">«Какое самое слабое место отдела продаж по всем перепискам и разговорам с клиентами за прошлый год?»</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Один анализ — конкретная ценность для каждой роли.</h2>
+      <p>Все смотрят на одни и те же доказательства, но получают ответ на свой рабочий вопрос.</p>
+    </div>
+    <div class="role-grid">
+      <article class="role-card rv">
+        <span class="role-icon">01</span>
+        <h3>Владельцу компании</h3>
+        <p><strong>Полная прозрачность отдела продаж:</strong> насколько эффективно менеджеры обрабатывают лиды, где сделки теряются и что руководитель меняет прямо сейчас.</p>
+      </article>
+      <article class="role-card rv">
+        <span class="role-icon">02</span>
+        <h3>Руководителю отдела продаж</h3>
+        <p><strong>До 30 часов в неделю обратно:</strong> не нужно вручную читать сотни переписок и прослушивать записи разговоров, чтобы подготовить разбор и планёрку.</p>
+      </article>
+      <article class="role-card rv">
+        <span class="role-icon">03</span>
+        <h3>Менеджеру по продажам</h3>
+        <p><strong>Конкретные действия по сделкам:</strong> что написать, что сказать и какой следующий шаг назначить, чтобы закрывать больше сделок и больше зарабатывать.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -751,13 +841,12 @@ q{quotes:none}
 <section>
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>Звонки остаются вашим материалом.</h2>
+      <h2>Это безопасно:</h2>
     </div>
     <div class="priv rv">
-      <div class="priv-row"><span class="pic">🔒</span><div><h3>Только чтение</h3><p>Права на запись не просим — вебхук остаётся только на чтение. Удалить его можно в CRM в один клик, и доступ закрыт.</p></div></div>
-      <div class="priv-row"><span class="pic">🕶</span><div><h3>Имена в ИИ не уходят</h3><p>Модель видит «Менеджер #1», а не фамилии. Имена, телефоны и адреса из переписки заменяются на метки до отправки; настоящие имена остаются в приложении.</p></div></div>
+      <div class="priv-row"><span class="pic">🔒</span><div><h3>Доступ только на чтение</h3><p>Права на запись не просим — вебхук остаётся только на чтение. Удалить его можно в CRM в один клик, и доступ закрыт.</p></div></div>
+      <div class="priv-row"><span class="pic">🕶</span><div><h3>Персональные данные не уходят в ИИ</h3><p>Модель видит «Менеджер #1», а не фамилии. Имена, телефоны и адреса из переписки заменяются на метки до отправки; настоящие имена остаются в приложении.</p></div></div>
       <div class="priv-row"><span class="pic">✋</span><div><h3>Два отдельных согласия</h3><p>Текст переписки и записи звонков разбираются только после вашего явного «да» на каждое. Без согласия на аудио звонки остаются числами: сколько, когда, сколько длились.</p></div></div>
-      <div class="priv-row"><span class="pic">💻</span><div><h3>Отчёты — на вашем компьютере</h3><p>Разборы хранятся локально, в приложении. Менеджерам ничего устанавливать не нужно — они разбор вообще не заметят.</p></div></div>
     </div>
   </div>
 </section>
@@ -798,10 +887,19 @@ q{quotes:none}
       <span class="free">Первый анализ в пилоте — бесплатно</span>
       <h2>Дайте нам 20 закрытых сделок.</h2>
       <p>Вернём звонок, который стоит включить на планёрке, сильный ответ из вашей команды и два конкретных шага каждому менеджеру.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary btn-xl" href="mailto:hi@uniqore.ai?subject=Uniqore%20speech%20pilot">Запросить первый анализ →</a>
-        <a class="btn btn-ghost btn-xl" href="/download/">Скачать приложение</a>
-      </div>
+      <form class="lead-form" id="contact-form">
+        <div class="lead-fields">
+          <label class="lead-field"><span>Имя <b class="lead-required">*</b></span><input name="name" autocomplete="name" required placeholder="Как к вам обращаться"/></label>
+          <label class="lead-field"><span>Телефон <b class="lead-required">*</b></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" minlength="7" required placeholder="+7 700 000 00 00"/></label>
+          <label class="lead-field full"><span>Email <em>(необязательно)</em></span><input name="email" type="email" autocomplete="email" placeholder="you@company.com"/></label>
+        </div>
+        <div class="lead-actions">
+          <button class="btn btn-primary btn-xl" type="submit">Оставить контакты →</button>
+          <a class="btn btn-ghost btn-xl" href="/download/">Скачать приложение</a>
+        </div>
+        <p class="lead-form-note">Откроем заполненное письмо — останется нажать «Отправить». Сопроводим подключение и первый разбор лично.</p>
+        <div class="lead-status" id="leadStatus" role="status" aria-live="polite"></div>
+      </form>
       <div class="get-note">Bitrix24 или amoCRM, 30 минут на подключение, карта не нужна</div>
     </div>
   </div>
@@ -941,11 +1039,11 @@ q{quotes:none}
   </g>
 </svg>
 
-      <h2>В понедельник включите звонок. Не мнения.</h2>
+      <h2>В одном шаге от радикального улучшения продаж</h2>
       <p>Напишите, какая у вас CRM и сколько менеджеров в отделе. Покажем, что попадёт в первый разбор, и подключим пилот лично.</p>
       <div class="mail-row">
         <a class="btn btn-primary btn-xl" href="/download/">Скачать</a>
-        <a class="btn btn-ghost btn-xl" href="mailto:hi@uniqore.ai?subject=Uniqore%20speech%20pilot">Получить первый анализ →</a>
+        <a class="btn btn-ghost btn-xl" href="#contact-form">Получить первый анализ →</a>
         <span class="mail-pill">hi@uniqore.ai <button class="copy-btn" id="copyBtn">копировать</button></span>
       </div>
     </div>
@@ -957,7 +1055,8 @@ q{quotes:none}
     <div class="foot-brand"><img src="/favicon.svg?v=1.0.1" alt=""/>Uniqore — ИИ-Партнёр для предпринимателя</div>
     <div class="foot-links">
       <a href="/mission/">Миссия</a>
-      <a href="/speech-analytics/">Речевая аналитика</a>
+      <a href="/automations/">Автоматизации</a>
+      <a href="/speech-analytics/">Речевая аналитика продаж</a>
       <a href="/download/">Скачать</a>
       <a href="https://uniqore.ai/" hreflang="en" rel="alternate">Eng ↗</a>
       <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
@@ -968,7 +1067,7 @@ q{quotes:none}
 
 <script>
 (function(){
-  var t = window.uniqoreTranslate || function(s){ return s; };
+  function t(s){ return window.uniqoreTranslate ? window.uniqoreTranslate(s) : s; }
 
   // reveal on scroll + bars
   var io = new IntersectionObserver(function(es){
@@ -1080,6 +1179,29 @@ q{quotes:none}
     setTimeout(function(){ cb.classList.remove('done'); }, 1400);
   });
 
+  // Контактная форма на статическом GitHub Pages: валидируем поля и готовим письмо команде.
+  var leadForm = document.getElementById('contact-form');
+  if(leadForm) leadForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    if(!leadForm.reportValidity()) return;
+    var data = new FormData(leadForm);
+    var name = String(data.get('name') || '').trim();
+    var phone = String(data.get('phone') || '').trim();
+    var email = String(data.get('email') || '').trim();
+    var body = [
+      'Заявка с лендинга речевой аналитики',
+      '',
+      'Имя: ' + name,
+      'Телефон: ' + phone,
+      'Email: ' + (email || 'не указан'),
+      'Язык лендинга: ' + document.documentElement.lang,
+      'Источник: ' + location.href
+    ].join('\n');
+    var status = document.getElementById('leadStatus');
+    if(status) status.textContent = t('Контакты заполнены — открылось письмо команде Uniqore. Осталось нажать «Отправить».');
+    location.href = 'mailto:hi@uniqore.ai?subject=' + encodeURIComponent('Первый разбор речевой аналитики — ' + name) + '&body=' + encodeURIComponent(body);
+  });
+
   // copy email
   var btn = document.getElementById('copyBtn');
   if(btn) btn.addEventListener('click', function(){
@@ -1089,6 +1211,6 @@ q{quotes:none}
   });
 })();
 </script>
-<script src="/assets/i18n.js?v=11"></script>
+<script src="/assets/i18n.js?v=15"></script>
 </body>
 </html>
