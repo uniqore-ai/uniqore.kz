@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/language.css?v=2"/>
 <link rel="stylesheet" href="/assets/site.css?v=2"/>
-<link rel="stylesheet" href="/assets/automations.css?v=1"/>
+<link rel="stylesheet" href="/assets/automations.css?v=2"/>
 <link rel="icon" href="/favicon.ico?v=1.0.1" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1.0.1"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1.0.1"/>
@@ -61,6 +61,76 @@
     <div class="wrap">
       <a class="automation-back" href="/automations/">← Все автоматизации</a>
       <div id="automationDetail"></div>
+    </div>
+  </section>
+
+  <section id="demo" class="sales-funnel-demo">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2>Первая автоматизация — вживую.</h2>
+        <p>Рентген воронки продаж — превью на демо-данных. Нажимайте на подсказки: дашборд отвечает как настоящий продукт.</p>
+      </div>
+      <div class="mock rv" data-sales-funnel-demo>
+        <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="mock-product">Uniqore · <b>Анализ воронки продаж</b></span><span class="mock-tag">демо-данные</span></div>
+        <div class="mock-body">
+          <div class="mock-main">
+            <div class="m-title"><h3>Анализ воронки продаж</h3><span class="livechip"><i></i>работает</span></div>
+            <div class="m-src">Источник: ваша CRM · воронка «Продажи» · последние 90 дней · обновлено только что</div>
+            <div class="leak">
+              <div class="v">≈ $<span data-demo-leak>0</span><small> / месяц утекает</small></div>
+              <p>Главный провал: <b>Презентация → Счёт (−58% сделок)</b> плюс медленные первые ответы. Это деньги, застрявшие в вашей воронке.</p>
+            </div>
+            <div class="kpis">
+              <div class="kpi"><div class="v">4.1%</div><div class="l">Конверсия из лида в оплату</div><div class="t dn">▼ −0.6 п.п.</div></div>
+              <div class="kpi"><div class="v">184</div><div class="l">Сделок потеряно за 90 дней</div><div class="t dn">▲ +12%</div></div>
+              <div class="kpi"><div class="v">$19,000</div><div class="l">Зависло в застрявших сделках</div><div class="t">63 сделки простаивают &gt;14 дней</div></div>
+              <div class="kpi"><div class="v">3ч 40м</div><div class="l">Медиана первого ответа лиду</div><div class="t dn">▲ хуже нормы в 30 мин</div></div>
+            </div>
+            <div class="fun">
+              <h4>Конверсия по этапам</h4>
+              <div class="s">Сколько сделок доходит до каждого этапа — и где они рвутся.</div>
+              <div class="frow"><span class="n">Новый лид</span><div class="track"><div class="fill" data-demo-width="100"></div></div><span class="v">1 240 <span>· 100%</span></span></div>
+              <div class="frow"><span class="n">В работе</span><div class="track"><div class="fill" data-demo-width="71"></div></div><span class="v">880 <span>· 71%</span></span></div>
+              <div class="frow"><span class="n">КП отправлено</span><div class="track"><div class="fill" data-demo-width="43"></div></div><span class="v">534 <span>· 43%</span></span></div>
+              <div class="frow loss"><span class="n">Презентация</span><div class="track"><div class="fill" data-demo-width="31"></div></div><span class="v">389 <span>· 31%</span></span></div>
+              <div class="frow loss"><span class="n">Счёт</span><div class="track"><div class="fill" data-demo-width="13"></div></div><span class="v">163 <span>· 13%</span></span></div>
+              <div class="frow"><span class="n">Оплачено</span><div class="track"><div class="fill" data-demo-width="5"></div></div><span class="v">51 <span>· 4.1%</span></span></div>
+              <div class="drop">▼ <b>Основная потеря: Презентация → Счёт</b> — 226 сделок ушло (−58%). Большая часть ваших денег застревает именно здесь.</div>
+            </div>
+            <div class="mock-extra" data-demo-source-block hidden>
+              <div class="fun">
+                <h4>Конверсия по источникам лидов <span class="newtag">добавлено из чата</span></h4>
+                <div class="s">Куда стоит вкладывать бюджет — а куда нет.</div>
+                <div class="frow"><span class="n">Рекомендации</span><div class="track"><div class="fill" data-demo-width="92"></div></div><span class="v">9.1% <span>· дёшево</span></span></div>
+                <div class="frow"><span class="n">Instagram</span><div class="track"><div class="fill" data-demo-width="55"></div></div><span class="v">4.3%</span></div>
+                <div class="frow"><span class="n">Платный поиск</span><div class="track"><div class="fill" data-demo-width="40"></div></div><span class="v">3.1% <span>· дорого</span></span></div>
+                <div class="frow loss"><span class="n">Холодные звонки</span><div class="track"><div class="fill" data-demo-width="18"></div></div><span class="v">1.4%</span></div>
+              </div>
+            </div>
+          </div>
+          <aside class="mock-chat">
+            <div class="mc-head"><div class="orb"></div><div><div class="t">Uniqore</div><div class="s">меняет дашборд по вашему запросу</div></div></div>
+            <div class="mc-scroll" data-demo-chat aria-live="polite">
+              <div class="msg agent">Готово — ваша воронка подключена. Спросите что угодно о продажах или скажите, что добавить или убрать на дашборде.</div>
+            </div>
+            <div class="mc-chips">
+              <button type="button" class="chip-btn" data-demo-action="source">＋ Добавить конверсию по источникам</button>
+              <button type="button" class="chip-btn" data-demo-action="why">Почему провал на этапе «Счёт»?</button>
+              <button type="button" class="chip-btn" data-demo-action="monday">Присылайте сводку каждый понедельник</button>
+            </div>
+            <div class="mc-note">Демо. В продукте ответы формируются из ваших актуальных данных CRM.</div>
+          </aside>
+        </div>
+        <div aria-hidden="true">
+          <span data-demo-copy="sourceButtonDone">✓ Блок источников добавлен</span>
+          <span data-demo-copy="sourceUser">Добавить конверсию по источникам</span>
+          <span data-demo-copy="sourceAgent">Добавил «Конверсию по источникам». Сразу видно: рекомендации конвертят в 9.1% и почти ничего не стоят, холодные звонки — 1.4%. Стоит перекинуть бюджет в сторону рекомендаций.</span>
+          <span data-demo-copy="whyUser">Почему провал на этапе «Счёт»?</span>
+          <span data-demo-copy="whyAgent">На переходе Презентация → Счёт вы теряете 58% сделок. По данным: слишком мало касаний (1–2 вместо 5–7) и медленные первые ответы (медиана 3ч 40м). Оживить 63 застрявшие сделки на $19,000 — ваш самый быстрый выигрыш.</span>
+          <span data-demo-copy="mondayUser">Присылайте сводку каждый понедельник</span>
+          <span data-demo-copy="mondayAgent">Готово — каждый понедельник будете получать свежую картину воронки за неделю.</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -115,5 +185,6 @@ document.querySelectorAll('.rv').forEach(function(element){io.observe(element);}
 setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(element){element.classList.add('on');});},3000);
 </script>
 <script src="/assets/i18n.js?v=13"></script>
+<script src="/assets/sales-funnel-demo.js?v=1"></script>
 </body>
 </html>
