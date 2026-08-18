@@ -106,7 +106,7 @@
     container.innerHTML = items.map(function(item){
       var cta = item.status === 'live'
         ? '<a class="btn btn-primary btn-sm auto-card-cta" href="' + item.path + '">Посмотреть →</a>'
-        : '<a class="btn btn-sm auto-card-cta auto-card-interest" href="' + interestUrl(item) + '" target="_blank" rel="noopener" aria-label="Мне нужна автоматизация ' + escapeHtml(item.title) + '">Мне нужна</a>';
+        : '<a class="btn btn-sm auto-card-cta auto-card-interest" href="' + interestUrl(item) + '" target="_blank" rel="noopener" aria-label="Мне это нужно: автоматизация ' + escapeHtml(item.title) + '">Мне это нужно</a>';
       return '<article class="auto-card" data-categories="' + item.categories.join(' ') + '">' +
         '<div class="auto-card-top"><div class="auto-card-icon" aria-hidden="true">' + item.icon + '</div>' +
         '<span class="auto-status ' + item.status + '">' + statusLabel(item) + '</span></div>' +
