@@ -98,7 +98,7 @@
 
   function interestUrl(item){
     var message = 'Добрый день! Пишу вам с сайта uniqore.kz. Мне нужна автоматизация "' + item.title + '"';
-    return window.UniqoreContact.whatsappUrl(message);
+    return window.UniqoreContact ? window.UniqoreContact.whatsappUrl(message) : 'https://wa.me/';
   }
 
   function renderCatalog(container){
