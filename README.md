@@ -32,9 +32,11 @@
 **https://uniqore.ai/** в новой вкладке.
 Хостинг — **GitHub Pages** (деплой из ветки `main`, корень `/`).
 
-**Скачивание.** Кнопки на `/download/` пока «Скоро»; включение — готовые href в
-HTML-комментариях рядом с кнопками (`https://api.uniqore.ai/download/darwin` и
-`…/download/windows`, публичный эндпойнт cto-server из спеки `app-updates.md`).
+**Скачивание.** Обе кнопки на `/download/` живые и ведут на публичный эндпойнт
+cto-server (`https://api.uniqore.ai/download/darwin` и `…/download/windows`,
+спека `app-updates.md`) — он отдаёт последнюю опубликованную сборку, так что при
+новом релизе править тут нечего. Слаги платформ — `PLATFORMS` в
+`cto-server/src/routes/releases.rs`.
 
 ## Структура
 
