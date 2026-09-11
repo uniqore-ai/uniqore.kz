@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>
+(function(){
+  var requested = new URLSearchParams(location.search).get('lang');
+  var saved = null;
+  try { saved = localStorage.getItem('uniqore-language'); } catch (e) {}
+  var browserUsesKazakh = (navigator.languages || [navigator.language || '']).some(function(locale){
+    return String(locale).toLowerCase().split('-')[0] === 'kk';
+  });
+  var language = requested === 'ru' || requested === 'kk'
+    ? requested
+    : (saved === 'ru' || saved === 'kk' ? saved : (browserUsesKazakh ? 'kk' : 'ru'));
+  if (requested === 'ru' || requested === 'kk') {
+    try { localStorage.setItem('uniqore-language',requested); } catch (e) {}
+  }
+  document.documentElement.lang = language;
+  document.documentElement.dataset.language = language;
+  setTimeout(function(){ document.documentElement.classList.add('i18n-ready'); },1500);
+})();
+</script>
+<link rel="stylesheet" href="/assets/language.css?v=2"/>
+<title>Политика конфиденциальности и согласие на обработку данных Uniqore — Uniqore</title>
+<meta name="description" content="Политика конфиденциальности и согласие на обработку данных Uniqore. Версия 1.0.0, вступает в силу 31 августа 2026 года."/>
+<meta property="og:title" content="Политика конфиденциальности и согласие на обработку данных Uniqore — Uniqore"/>
+<meta property="og:description" content="Политика конфиденциальности и согласие на обработку данных Uniqore. Версия 1.0.0, вступает в силу 31 августа 2026 года."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/site.css?v=2"/>
+<link rel="canonical" href="https://uniqore.kz/legal/privacy/"/>
+<link rel="alternate" hreflang="ru" href="https://uniqore.kz/legal/privacy/"/>
+<link rel="alternate" hreflang="kk" href="https://uniqore.kz/legal/privacy/?lang=kk"/>
+<link rel="alternate" hreflang="en" href="https://uniqore.ai/legal/privacy/"/>
+<link rel="alternate" hreflang="x-default" href="https://uniqore.kz/legal/privacy/"/>
+<link rel="icon" href="/favicon.ico?v=1.0.1" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1.0.1"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1.0.1"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1.0.1"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1.0.1"/>
+<link rel="manifest" href="/site.webmanifest?v=1.0.1"/>
+<meta name="msapplication-config" content="/browserconfig.xml?v=1.0.1"/>
+<meta name="theme-color" content="#8D7FF1"/>
+<meta property="og:url" content="https://uniqore.kz/legal/privacy/"/>
+<meta property="og:type" content="article"/>
+<style>
+/* ── страничное: /legal/ ── */
+.legal{max-width:760px;margin:0 auto;padding:40px 24px 60px}
+.legal h1{font-size:28px;letter-spacing:-.02em;line-height:1.2;margin:0 0 12px}
+.legal h2{font-size:18px;letter-spacing:-.01em;margin:30px 0 10px}
+.legal p,.legal li{font-size:15px;line-height:1.65;color:var(--ink-2)}
+.legal p{margin:0 0 12px}
+.legal ul{margin:0 0 12px;padding-left:22px}
+.legal li{margin:4px 0}
+.legal a{color:var(--violet);text-decoration:underline;text-underline-offset:2px}
+.legal-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 24px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.6);font-size:13px;color:var(--ink-3);font-weight:600}
+.legal-meta b{color:var(--ink)}
+.legal-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px}
+.legal-list li{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,.6)}
+.legal-list a.t{font-size:17px;font-weight:800;color:var(--ink);text-decoration:none}
+.legal-list a.t:hover{color:var(--violet)}
+.legal-list .m{margin-top:6px;font-size:13px;color:var(--ink-3);font-weight:600}
+.legal-actions{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0 0;font-size:13px;font-weight:700}
+.legal table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:13.5px;line-height:1.45}
+.legal th,.legal td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;color:var(--ink-2)}
+.legal th{background:rgba(255,255,255,.7);color:var(--ink);font-weight:700}
+.legal .tbl{overflow-x:auto}
+@media print{nav,footer,.legal-actions{display:none}.legal{padding:0;max-width:none}.legal p,.legal li{color:#000}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<nav>
+  <div class="nav-in">
+    <a class="nav-home" href="/" aria-label="UNIQORE — на главную"><img class="brand-icon" src="/favicon.svg?v=1.0.1" alt=""/><img class="brand-wordmark" src="/assets/wordmark-dark-v1.2.0.svg" alt="UNIQORE"/></a>
+    <a class="nav-link" href="/automations/">Автоматизации</a>
+    <a class="nav-link" href="/speech-analytics/">Речевая аналитика продаж</a>
+    <span class="sp"></span>
+    <details class="language-menu">
+      <summary aria-label="Выбрать язык" aria-haspopup="menu">
+        <span class="language-globe" aria-hidden="true">🌐</span>
+        <span class="language-current">Рус</span>
+        <span class="language-current-short">Рус</span>
+        <span class="language-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="language-options" role="menu">
+        <button type="button" role="menuitem" data-language-choice="ru">Рус</button>
+        <button type="button" role="menuitem" data-language-choice="kk">Қаз</button>
+        <a role="menuitem" href="https://uniqore.ai/" target="_blank" hreflang="en" rel="alternate noopener" aria-label="Eng — uniqore.ai">Eng <span class="language-external-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </details>
+    <a class="nav-mail" href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Скачать</a>
+  </div>
+</nav>
+<main class="legal">
+  <h1>Политика конфиденциальности и согласие на обработку данных Uniqore</h1>
+  <div class="legal-meta"><span>Версия <b>1.0.0</b></span><span>Редакция от <b>31 августа 2026 года</b></span><span>Вступает в силу <b>31 августа 2026 года</b></span></div>
+  <div class="tbl">
+<p>Этот документ одновременно описывает обработку персональных данных, условия согласия пользователя, использование cookie и получение маркетинговых сообщений. Он относится к собственным данным пользователя; законность данных работников, клиентов и иных лиц обеспечивает Заказчик по оферте.</p>
+<h2>1. Оператор и сфера действия</h2>
+<p>1.1. Оператор — ТОО «Uniqore», БИН 260840038553, адрес: Республика Казахстан, 010000, город Астана, район Сарайшык, проспект Рақымжан Қошқарбаев, дом 10/1, нежилое помещение 18, email: <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>, телефон: +7 777 687 95 77.</p>
+<p>1.2. Политика действует для сайта uniqore.kz, аккаунта, приложения, поддержки, оплаты и прямых коммуникаций Uniqore. Продукт предназначен для юридических лиц, индивидуальных предпринимателей и совершеннолетних физических лиц, использующих его исключительно в профессиональной или предпринимательской деятельности и не как потребители. Продукт не предназначен для личных, семейных, домашних или иных нужд, не связанных с предпринимательской деятельностью, и для лиц младше 18 лет.</p>
+<h2>2. Данные, цели и основания</h2>
+<p>2.1. Uniqore может обрабатывать:</p>
+<ul><li>имя, фамилию, организацию, должность, рабочие email и телефон;</li><li>сведения о типе Заказчика и профессиональной или предпринимательской цели использования;</li><li>ИИН физического лица либо БИН организации, адрес и иные реквизиты, необходимые для договора, счета, оплаты и обязательного учета;</li><li>данные аккаунта, Тарифа, счетов, суммы, валюты, периода, назначения и статуса оплаты, обращений и выбранных настроек;</li><li>токен или маскированные сведения способа оплаты, полученные от платежного провайдера;</li><li>IP-адрес, дату, время, устройство, приложение, идентификаторы аккаунта, организации и сессии, журналы входа, ошибок и безопасности;</li><li>статистику использования функций, моделей, запросов, токенов и стоимости;</li><li>введенные пользователем запросы, переписку и иное содержание, а также расшифровки, классификации, сводки и другие результаты обработки.</li></ul>
+<p>2.2. Uniqore не запрашивает копию удостоверения личности, полные реквизиты платежной карты, медицинские сведения, биометрию, пароли и государственные секреты, если отдельная функция и законное основание прямо этого не предусматривают. Полные реквизиты карты обрабатывает платежный провайдер; Uniqore не должен их получать или хранить.</p>
+<p>2.3. Цели обработки: подтвердить допустимую цель использования; создать и защитить аккаунт; заключить и исполнить договор; предоставить, поддерживать и тарифицировать Продукт; выставлять счета, принимать оплату и вести обязательный учет; предупреждать злоупотребления и инциденты; исправлять ошибки; защищать права; исполнять закон; улучшать надежность на основе технических, агрегированных или обезличенных данных; направлять маркетинг только по добровольному согласию.</p>
+<p>2.4. Основание — согласие субъекта, договор, требование закона или другое основание, предусмотренное законодательством Республики Казахстан. Для новой несовместимой цели Uniqore получает новое основание.</p>
+<h2>3. Согласие пользователя</h2>
+<p>3.1. Устанавливая обязательную, не отмеченную заранее отметку, пользователь дает ТОО «Uniqore» согласие собирать и обрабатывать перечисленные в пункте 2.1 его персональные данные для целей пункта 2.3, кроме маркетинга.</p>
+<p>3.2. Разрешенные действия: сбор, запись, систематизация, накопление, хранение, уточнение, извлечение, использование, передача поставщикам и за пределы Казахстана на условиях раздела 4, блокирование, обезличивание и удаление. Обработка может быть автоматизированной, неавтоматизированной или смешанной. Согласие не включает распространение данных в общедоступных источниках.</p>
+<p>3.3. Согласие действует до достижения целей, отзыва или окончания обязательного срока хранения. После отзыва Uniqore вправе продолжить обработку, если этого требует закон, обязательный учет, защита требований или неисполненное обязательство, и вправе немедленно отключить функции или аккаунт, которым данные необходимы.</p>
+<p>3.4. Uniqore фиксирует полное имя, email, тип Заказчика, подтвержденную цель использования, текст и версию документа, выбранные отметки, дату, время и технические идентификаторы события. Пользователь подтверждает достоверность указанных им данных.</p>
+<h2>4. Поставщики, хранение и передача</h2>
+<p>4.1. База, содержащая персональные данные, хранится на территории Республики Казахстан. До технического подтверждения этого условия Uniqore не запускает обработку реальных персональных данных.</p>
+<p>4.2. Для работы выбранных функций данные в необходимом объеме могут получать поставщики инфраструктуры, искусственного интеллекта, распознавания речи, электронной почты, платежей, поддержки и интеграций. Uniqore не продает персональные данные.</p>
+<p>4.3. Актуальный перечень поставщиков поддерживается в этой Политике:</p>
+<table><thead><tr><th>Поставщик и юрлицо</th><th>Страна обработки</th><th>Данные</th><th>Цель</th></tr></thead><tbody><tr><td>netcup GmbH (VPS-хостинг, Coolify) — до завершения переноса базы в Республику Казахстан</td><td>Германия</td><td>аккаунт, токены устройств, журналы, записи акцептов, кеш CRM</td><td>хостинг сервера и базы</td></tr><tr><td>OpenRouter, Inc.</td><td>США</td><td>запросы к моделям: обезличенные агрегаты, метки «Менеджер #N», аудио и тексты диалогов при включённой речевой аналитике</td><td>модели искусственного интеллекта и распознавание речи</td></tr><tr><td>Resend, Inc.</td><td>США</td><td>email, код входа</td><td>письма для входа</td></tr><tr><td>Google LLC</td><td>США</td><td>email и идентификатор Google — только при входе через Google</td><td>вход через Google</td></tr><tr><td>CRM Заказчика (Bitrix24, amoCRM)</td><td>по договору Заказчика</td><td>данные портала, читаемые по указанию Заказчика</td><td>источник данных автоматизаций</td></tr></tbody></table>
+<p>4.4. Пользователь соглашается на передачу поставщикам из актуального перечня, включая трансграничную передачу, когда она нужна выбранной функции. В государство, не обеспечивающее требуемую защиту, передача выполняется при наличии этого согласия или иного основания, прямо предусмотренного законом. Если изменение поставщика выходит за пределы данного согласия, Uniqore запрашивает новое; отказ делает зависимую функцию недоступной и не обязывает Uniqore создавать локальную замену.</p>
+<p>4.5. Содержание пользователя не используется для обучения общедоступных моделей без отдельного согласия Заказчика. Технические, агрегированные и необратимо обезличенные сведения могут использоваться для безопасности, аналитики и улучшения Продукта.</p>
+<h2>5. Сроки, безопасность и права</h2>
+<p>5.1. Данные аккаунта и договора хранятся в течение договора и обязательных сроков учета и защиты требований. ИИН, БИН, счета и платежные сведения хранятся в течение срока, необходимого для обязательного бухгалтерского, налогового и иного учета. Данные интеграций хранятся до удаления, отключения функции или окончания технического срока. Журналы и резервные копии удаляются по внутреннему графику. Срок продлевается при требовании закона, споре или расследовании; затем данные удаляются или обезличиваются.</p>
+<p>5.2. Uniqore применяет разграничение доступа, защиту секретов подключения, журналирование, резервное копирование и организационные меры с учетом риска. Абсолютная безопасность не гарантируется. О подтвержденном инциденте Uniqore уведомляет субъектов, заказчиков и органы в случаях и сроки, установленные законом.</p>
+<p>5.3. Субъект вправе узнать о наличии, целях, источниках, составе, передаче и сроках обработки; потребовать исправления, блокирования или удаления при наличии оснований; отозвать согласие; отказаться от маркетинга; обратиться в уполномоченный орган или суд.</p>
+<p>5.4. Запрос направляется на <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a> с именем, email аккаунта и требованием. Uniqore вправе проверить личность и полномочия заявителя и отвечает в срок, установленный законом. Отзыв не отменяет законность предыдущей обработки.</p>
+<h2>6. Cookie</h2>
+<p>6.1. Сайт может использовать cookie и сходные технологии для загрузки, безопасности, входа, сессии и настроек. Такие необходимые cookie обеспечивают запрошенную функцию; их блокировка может нарушить работу сайта.</p>
+<p>6.2. Аналитические и маркетинговые cookie, позволяющие прямо или косвенно определить пользователя, не включаются до отдельного выбора пользователя. Молчание или продолжение просмотра не являются согласием.</p>
+<p>6.3. До публикации проводится техническое сканирование. Если используются только необходимые cookie, сайт прямо сообщает об этом и не показывает фиктивный баннер согласия. Если есть необязательные cookie, интерфейс до их установки позволяет принять или отклонить их и позднее изменить выбор; перечень названий, поставщиков, целей, сроков и стран публикуется в интерфейсе или этой Политике.</p>
+<h2>7. Маркетинговые сообщения</h2>
+<p>7.1. Маркетинг не является условием регистрации или покупки. Только установив отдельную, не отмеченную заранее отметку, пользователь соглашается получать новости, предложения, опросы и приглашения Uniqore по выбранным им email, телефону, SMS или мессенджеру.</p>
+<p>7.2. Для этого обрабатываются имя, организация, должность, рабочие email и телефон, выбранные канал и язык, источник и дата согласия, сведения о доставке, открытии, переходах и отказе. Согласие действует до отзыва по ссылке, команде в сообщении, в аккаунте или через <a href="mailto:hi@uniqore.ai.">hi@uniqore.ai.</a> Uniqore сохраняет минимальную запись об отказе, чтобы не возобновить рассылку ошибочно.</p>
+<p>7.3. Сообщения о входе, безопасности, оплате, изменении договора и работе аккаунта являются служебными и могут направляться без маркетингового согласия, если нужны для договора или закона и не содержат рекламы.</p>
+<h2>8. Изменения и контакты</h2>
+<p>8.1. Каждая редакция имеет версию и дату. Uniqore вправе обновить Политику при изменении Продукта, поставщиков или закона. Новое согласие запрашивается, если меняется волеизъявление пользователя или этого требует закон. Предыдущие редакции хранятся в архиве.</p>
+<p>8.2. Вопросы и требования: <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>, +7 777 687 95 77. Почтовый адрес оператора указан в пункте 1.1.</p>
+  </div>
+  <div class="legal-actions"><a href="/legal/">← Все документы</a><a href="/legal/privacy/privacy.md">Исходный текст (Markdown)</a><a href="#" onclick="window.print();return false;">Распечатать</a></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><img src="/favicon.svg?v=1.0.1" alt=""/>Uniqore — ИИ-Партнёр для предпринимателя</div>
+    <div class="foot-links">
+      <a href="/mission/">Миссия</a>
+      <a href="/automations/">Автоматизации</a>
+      <a href="/speech-analytics/">Речевая аналитика продаж</a>
+      <a href="/download/">Скачать</a>
+      <a href="https://uniqore.ai/" hreflang="en" rel="alternate">Eng ↗</a>
+      <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
+      <a href="/legal/offer/">Оферта</a>
+      <a href="/legal/privacy/">Политика конфиденциальности</a>
+    </div>
+    <div class="foot-legal">ТОО «Uniqore» · БИН 260840038553 · Республика Казахстан, 010000, г. Астана, район Сарайшык, пр. Рақымжан Қошқарбаев, 10/1, н.п. 18 · <a href="tel:+77776879577">+7 777 687 95 77</a></div>
+    <div class="foot-region">
+    <details class="region-menu">
+      <summary aria-label="Выбрать регион" aria-haspopup="menu"><span class="region-globe" aria-hidden="true">🌐</span><span class="region-current">Регион</span><span class="region-chevron" aria-hidden="true"></span></summary>
+      <div class="region-options" role="menu">
+        <button type="button" role="menuitem" data-region="us">США</button>
+        <button type="button" role="menuitem" data-region="eu">Европа</button>
+        <button type="button" role="menuitem" data-region="au">Австралия и Океания</button>
+        <button type="button" role="menuitem" data-region="asia">Азия</button>
+        <button type="button" role="menuitem" data-region="other">Другие регионы</button>
+      </div>
+    </details>
+    </div>
+    <div class="foot-copy">© 2026 Uniqore</div>
+  </div>
+</footer>
+
+<script src="/assets/contact.js?v=1"></script>
+<script src="/assets/region.js?v=1"></script>
+<script src="/assets/i18n.js?v=17"></script>
+</body>
+</html>
