@@ -2,7 +2,7 @@
 
 Русско- и казахоязычный лендинг Uniqore — **ИИ-Партнёр для предпринимателя. ИИ, который
 внедряет в ваш бизнес сам себя.** Собран из канона продукта
-(`uniqore-docs/vision/`, актуальная версия v1.3.0); структура и решения —
+(`uniqore-docs/vision/`, актуальная версия v1.4.1); структура и решения —
 спека `uniqore-docs/desktop-cto/specs/landing-vision-refresh.md`.
 
 🔗 **Прод:** https://uniqore.kz
@@ -19,6 +19,7 @@
 | `automations/*/index.html` | `/automations/<slug>/` | Отдельные страницы автоматизаций из общего каталога |
 | `speech-analytics/index.html` | `/speech-analytics/` | Флагманская автоматизация «Речевая аналитика продаж» |
 | `download/index.html` | `/download/` | Скачать: платформы, первый запуск на macOS, mailto-фолбэк |
+| `legal/`, `legal/offer/`, `legal/privacy/` | `/legal/…` | Оферта и политика конфиденциальности — собираются `scripts/build-legal.mjs` из `uniqore-docs/legal/` (P163), руками не правятся |
 
 Общий хром (токены, нав, футер, кнопки, секции) — `assets/site.css`; страничные
 стили и скрипты — инлайн в своей странице. Маскот Юни — инлайн-SVG, в навигации
@@ -51,6 +52,8 @@ cto-server (`https://api.uniqore.ai/download/darwin` и `…/download/windows`,
 | `archive/crm/` | Бывшая `/crm/` («Увидьте, где бизнес теряет деньги») — retiring-продукт, `noindex` |
 | `archive/tenders/` | Архив тендерного продукта (было `/tenders/`), `noindex` |
 | `crm/`, `tenders/`, `tenders/demo/`, `tenders/fullpage/` | Заглушки-редиректы (meta refresh) на `/archive/…`, `noindex` |
+| `assets/region.js` | Меню региона в футере: Азия — здесь, остальное → uniqore.ai; выбор в `localStorage`, автопереброса нет |
+| `scripts/build-legal.mjs`, `scripts/check-footer.mjs`, `scripts/check-local-site.mjs` | Сборка `/legal/` из `uniqore-docs/legal`; сторож футеров/цен на всех страницах sitemap; проверка локального сайта, включая sha `/legal/*.md` = manifest |
 | `docs/localization.md` | Решения и сценарии проверки RU / ҚАЗ локализации |
 | `404.html` | Страница «не найдено» |
 | `CNAME` | Кастомный домен `uniqore.kz` для GitHub Pages |
