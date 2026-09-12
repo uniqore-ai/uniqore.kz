@@ -21,7 +21,7 @@
       summary:'Собирает изменения цен, товаров и акций конкурентов, чтобы вам не ходить по их сайтам.'
     },
     {
-      slug:'sales-funnel-analysis', path:'/automations/sales-funnel-analysis/', icon:'📊', status:'live',
+      slug:'sales-funnel-analysis', path:'/skills/sales-funnel-analysis/', icon:'📊', status:'live',
       categories:['sales'], tags:['Продажи'],
       title:'Анализ воронки продаж',
       summary:'Находит этапы, где застревают и умирают сделки, и считает цену этих потерь.'
@@ -39,7 +39,7 @@
       summary:'Показывает, кто приносит выручку, кто растёт, кто уснул и кого вы теряете.'
     },
     {
-      slug:'sales-manager-activity', icon:'🏃', status:'soon',
+      slug:'sales-manager-activity', icon:'🏃', status:'live',
       categories:['team','sales'], tags:['Команда','Продажи'],
       title:'Аналитика активности менеджеров по продажам',
       summary:'Показывает, кто действительно работал со сделками на этой неделе — по данным CRM.'
@@ -97,7 +97,7 @@
   function statusLabel(item){ return item.status === 'live' ? 'уже есть' : 'скоро'; }
 
   function interestUrl(item){
-    var message = 'Добрый день! Пишу вам с сайта uniqore.kz. Мне нужна автоматизация "' + item.title + '"';
+    var message = 'Добрый день! Пишу вам с сайта uniqore.kz. Мне нужен скилл "' + item.title + '"';
     return window.UniqoreContact ? window.UniqoreContact.whatsappUrl(message) : 'https://wa.me/';
   }
 
@@ -105,7 +105,9 @@
     if (!container) return;
     container.innerHTML = items.map(function(item){
       var cta = item.status === 'live'
-        ? '<a class="btn btn-primary btn-sm auto-card-cta" href="' + item.path + '">Посмотреть →</a>'
+        ? (item.path
+          ? '<a class="btn btn-primary btn-sm auto-card-cta" href="' + item.path + '">Посмотреть →</a>'
+          : '<a class="btn btn-primary btn-sm auto-card-cta" href="/download/">В приложении →</a>')
         : '<a class="btn btn-sm auto-card-cta auto-card-interest" href="' + interestUrl(item) + '" target="_blank" rel="noopener" aria-label="Мне это нужно: автоматизация ' + escapeHtml(item.title) + '">Мне это нужно</a>';
       return '<article class="auto-card" data-categories="' + item.categories.join(' ') + '">' +
         '<div class="auto-card-top"><div class="auto-card-icon" aria-hidden="true">' + item.icon + '</div>' +
@@ -119,7 +121,7 @@
 
   function currentSlug(){
     var parts = location.pathname.split('/').filter(Boolean);
-    return parts.length > 1 && parts[0] === 'automations' ? parts[1] : '';
+    return parts.length > 1 && parts[0] === 'skills' ? parts[1] : '';
   }
 
   function renderDetail(container){
@@ -127,7 +129,7 @@
     var slug = container.dataset.automationSlug || currentSlug();
     var item = items.find(function(candidate){ return candidate.slug === slug; });
     if (!item || item.status !== 'live') {
-      container.innerHTML = '<div class="automation-detail-card card"><h1>Автоматизация не найдена</h1><p>Вернитесь в каталог и выберите готовую автоматизацию.</p><a class="btn btn-primary" href="/automations/">Все автоматизации →</a></div>';
+      container.innerHTML = '<div class="automation-detail-card card"><h1>Скилл не найден</h1><p>Вернитесь в каталог и выберите готовый скилл.</p><a class="btn btn-primary" href="/skills/">Все скиллы →</a></div>';
       return;
     }
     var primary = '<a class="btn btn-primary" href="/download/">Скачать и запустить</a>';
@@ -136,7 +138,7 @@
       '<h1>' + escapeHtml(item.title) + '</h1>' +
       '<p class="automation-detail-summary">' + escapeHtml(item.summary) + '</p>' +
       '<div class="auto-card-tags">' + item.tags.map(function(tag){ return '<span class="auto-card-tag">' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' +
-      '<div class="automation-detail-actions">' + primary + '<a class="btn btn-ghost" href="/automations/">Все автоматизации →</a></div>' +
+      '<div class="automation-detail-actions">' + primary + '<a class="btn btn-ghost" href="/skills/">Все скиллы →</a></div>' +
     '</div>';
   }
 
