@@ -15,8 +15,8 @@
 |---|---|---|
 | `index.html` | `/` | Главная: боли → три фичи → позиционирование → десктоп → принципы → цены → CTA |
 | `mission/index.html` | `/mission/` | Миссия: «Мы обожаем фаундеров», качества, боли, навигатор |
-| `automations/index.html` | `/automations/` | Общий каталог готовых автоматизаций с фильтрами |
-| `automations/*/index.html` | `/automations/<slug>/` | Отдельные страницы автоматизаций из общего каталога |
+| `skills/index.html` | `/skills/` | Каталог скиллов с фильтрами (до 12.09.2026 — `/automations/`, старые адреса отдают редирект) |
+| `skills/*/index.html` | `/skills/<slug>/` | Отдельные страницы скиллов из общего каталога |
 | `speech-analytics/index.html` | `/speech-analytics/` | Флагманская автоматизация «Речевая аналитика продаж» |
 | `download/index.html` | `/download/` | Скачать: платформы, первый запуск на macOS, mailto-фолбэк |
 | `legal/`, `legal/offer/`, `legal/privacy/` | `/legal/…` | Оферта и политика конфиденциальности — собираются `scripts/build-legal.mjs` из `uniqore-docs/legal/` (P163), руками не правятся |
@@ -43,9 +43,9 @@ cto-server (`https://api.uniqore.ai/download/darwin` и `…/download/windows`,
 
 | Файл | Назначение |
 |------|------------|
-| `index.html`, `mission/`, `automations/`, `speech-analytics/`, `download/` | Живые страницы (см. выше) |
+| `index.html`, `mission/`, `skills/`, `speech-analytics/`, `download/` | Живые страницы (см. выше) |
 | `assets/site.css` | Общий хром сайта |
-| `assets/automations.js`, `assets/automations.css` | Единый каталог, карточки и страницы автоматизаций |
+| `assets/automations.js`, `assets/automations.css` | Единый каталог скиллов, карточки и их страницы (имена файлов исторические) |
 | `assets/illustrations/` | Оптимизированные иллюстрации для смысловых блоков главной |
 | `assets/wordmark-dark-v1.2.0.svg` | Актуальный графический wordmark `UNIQORE` из бренд-пака v1.2.0 |
 | `assets/i18n.js`, `assets/language.css` | RU→ҚАЗ локализация живых страниц и архивной `/archive/crm/` |
